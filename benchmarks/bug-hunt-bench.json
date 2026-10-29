@@ -1,0 +1,166 @@
+{
+  "schema": "neonforge.bug-hunt-bench-snapshot.v1",
+  "suite": "Bug Hunt Bench",
+  "publisher": "Pawel Huryn / Product Compass",
+  "canonicalModel": "deepseek-flash",
+  "modelVersion": "DeepSeek-V4.1-Flash-1017",
+  "snapshotDate": "2026-10-28",
+  "leaderboardUpdated": "2026-10-27",
+  "secondaryArticleDate": "2026-10-20",
+  "taskCount": 105,
+  "repositories": [
+    {
+      "id": "repo1",
+      "description": "Approximately 28K-line TypeScript VS Code extension",
+      "plantedBugs": 45
+    },
+    {
+      "id": "repo2",
+      "description": "Approximately 60K-line React/TypeScript LMS on Supabase Edge Functions and Clerk",
+      "plantedBugs": 60
+    }
+  ],
+  "method": {
+    "task": "Find and fix planted bugs in unfamiliar production repositories.",
+    "promptPolicy": "Identical published prompt per repository.",
+    "network": false,
+    "gitHistory": false,
+    "roundsPerRepository": 1,
+    "attemptsPerTask": 5,
+    "timeLimitSecondsPerRepository": 10800,
+    "requiredEvidenceFile": "BUGS_FOUND.md",
+    "scoringGroundTruth": "Blind judge compares the resulting diff with the withheld answer key.",
+    "score": "Verified planted bugs fixed / 105; no partial credit.",
+    "answerKey": "withheld by the publisher",
+    "sourceUrls": [
+      "https://github.com/phuryn/bug-hunt-bench",
+      "https://raw.githubusercontent.com/phuryn/bug-hunt-bench/main/README.md",
+      "https://bughunt.productcompass.pm/method",
+      "https://x.com/PawelHuryn/status/2112571119412646370",
+      "https://x.com/PawelHuryn/status/2111730046691836064",
+      "https://mp.weixin.qq.com/s/UR09ZMYyPp4y8ETp-MSlYw"
+    ]
+  },
+  "publishedHighEffortComparison": [
+    {
+      "harness": "Pi harness",
+      "fixed": 40.4,
+      "runs": 5,
+      "source": "x-post-2026-10-20"
+    },
+    {
+      "harness": "Grok Build CLI",
+      "fixed": 40.4,
+      "runs": 5,
+      "source": "x-post-2026-10-20"
+    },
+    {
+      "harness": "DeepSeek Harness",
+      "fixed": 39.2,
+      "runs": 5,
+      "source": "x-post-2026-10-20"
+    },
+    {
+      "harness": "OpenCode 2.0",
+      "fixed": 38.6,
+      "runs": 5,
+      "source": "x-post-2026-10-20"
+    },
+    {
+      "harness": "OpenCode",
+      "fixed": 36.6,
+      "runs": 5,
+      "source": "x-post-2026-10-20"
+    },
+    {
+      "harness": "Claude Code",
+      "fixed": 36.4,
+      "runs": 5,
+      "source": "x-post-2026-10-20"
+    },
+    {
+      "harness": "Codex",
+      "fixed": 33.2,
+      "runs": 5,
+      "source": "x-post-2026-10-20"
+    },
+    {
+      "harness": "Hermes Agent",
+      "fixed": 32,
+      "runs": 5,
+      "source": "x-post-2026-10-20"
+    },
+    {
+      "harness": "Kilo Code",
+      "fixed": 31.8,
+      "runs": 5,
+      "source": "x-post-2026-10-20"
+    }
+  ],
+  "officialLeaderboardHighEffort": [
+    {
+      "harness": "Pi / DeepSeek API",
+      "fixed": 40.4,
+      "repo1": 16,
+      "repo2": 24.4,
+      "extras": 29.4,
+      "runs": 5,
+      "wallMinutes": 48,
+      "cost": "$0.64 bill",
+      "date": "2026-10-18"
+    },
+    {
+      "harness": "DeepSeek Harness / DeepSeek API",
+      "fixed": 39.2,
+      "repo1": 17,
+      "repo2": 22.2,
+      "extras": 43.8,
+      "runs": 5,
+      "wallMinutes": 53,
+      "cost": "$1.27 bill",
+      "date": "2026-10-18"
+    },
+    {
+      "harness": "OpenCode / DeepSeek API",
+      "fixed": 36.6,
+      "repo1": 15.4,
+      "repo2": 21.2,
+      "extras": 25.6,
+      "runs": 5,
+      "wallMinutes": 42,
+      "cost": "$0.79 bill",
+      "date": "2026-10-19"
+    },
+    {
+      "harness": "Claude Code / DeepSeek API",
+      "fixed": 36.4,
+      "repo1": 15.2,
+      "repo2": 21.2,
+      "extras": 24.4,
+      "runs": 5,
+      "wallMinutes": 54,
+      "cost": "$0.82 bill",
+      "date": "2026-10-17"
+    }
+  ],
+  "comparisonTarget": {
+    "highestPublishedHighEffortFixed": 40.4,
+    "targetFixed": 40.4,
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "effort": "high",
+    "attemptsPerTask": 5,
+    "timeLimitSecondsPerRepository": 10800,
+    "scoring": "blind judge; fixed/105"
+  },
+  "v1Boundary": {
+    "executedByNeonForge": false,
+    "scoreClaim": null,
+    "snapshotOnly": true,
+    "adapterContract": "benchmarks/adapters/bug-hunt-bench/adapter.json"
+  },
+  "limitations": [
+    "The 9-harness high-effort table comes from the secondary WeChat article and the cited X post; the current public leaderboard README exposes only four high-effort DeepSeek rows in the locally stored snapshot.",
+    "The publisher withholds the answer key; NeonForge must not claim a score without the publisher's blind grading process.",
+    "The benchmark is externally published and is not reproduced by NeonForge in V1."
+  ]
+}

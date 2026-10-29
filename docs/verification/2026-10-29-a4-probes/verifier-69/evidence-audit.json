@@ -1,0 +1,134 @@
+{
+  "revision": {
+    "actual": "fae019514a3fbb9cf3918ca9357249a1b51c7395d7ff11d0a60f7dda2fc2b3b2",
+    "manifestFileCount": 49
+  },
+  "personas": {
+    "linux": {
+      "count": 12,
+      "evaluatorPasses": 12,
+      "p0": 0,
+      "p1": 0
+    },
+    "darwin": {
+      "count": 12,
+      "evaluatorPasses": 12,
+      "p0": 0,
+      "p1": 0
+    },
+    "win32": {
+      "count": 12,
+      "evaluatorPasses": 12,
+      "p0": 0,
+      "p1": 0
+    }
+  },
+  "personaTotal": 36,
+  "tuiSmoke": {
+    "linux": {
+      "count": 12,
+      "exitZero": 12,
+      "reportHash": "e13b7a9e2cab55196fe94e16111766033fb031a510a267645d15bb90b33b4388",
+      "linkedOutputs": 12
+    },
+    "darwin": {
+      "count": 12,
+      "exitZero": 12,
+      "reportHash": "0a43a4ea3d6b72eaff069912ed6dc0ec6bf280ea726fcba4b414bdd414ce0c99",
+      "linkedOutputs": 12
+    },
+    "windows": {
+      "count": 12,
+      "exitZero": 12,
+      "reportHash": "fec5e9cd1ecf324d5c2863d0a89c10474d2a39a82e83fe8893de074dba63c88b",
+      "linkedOutputs": 12
+    }
+  },
+  "protocolSmoke": {
+    "openai-chat": {
+      "exitCode": 0,
+      "streaming": true,
+      "providerModel": "commandcode-plan/deepseek/deepseek-v4.1-flash",
+      "canonicalModel": "deepseek-flash"
+    },
+    "openai-responses": {
+      "exitCode": 0,
+      "streaming": true,
+      "providerModel": "commandcode-plan/deepseek/deepseek-v4.1-flash",
+      "canonicalModel": "deepseek-flash"
+    },
+    "anthropic-messages": {
+      "exitCode": 0,
+      "streaming": true,
+      "providerModel": "commandcode-plan/deepseek/deepseek-v4.1-flash",
+      "canonicalModel": "deepseek-flash"
+    }
+  },
+  "installers": {
+    "linux": {
+      "bytes": 22143,
+      "entries": [
+        "./neonforge.mjs",
+        "./package.json"
+      ],
+      "launch": "neonforge 0.1.0",
+      "modelWeights": false,
+      "browserEngine": false
+    },
+    "darwin": {
+      "bytes": 22190,
+      "entries": [
+        "./neonforge.mjs",
+        "./package.json"
+      ],
+      "launch": "neonforge 0.1.0",
+      "modelWeights": false,
+      "browserEngine": false
+    },
+    "windows": {
+      "bytes": 22220,
+      "entries": [
+        "./neonforge.mjs",
+        "./package.json"
+      ],
+      "launch": "neonforge 0.1.0",
+      "modelWeights": false,
+      "browserEngine": false
+    }
+  },
+  "ab": {
+    "pairs": 12,
+    "tasks": 6,
+    "optimizedSuccesses": 12,
+    "baselineSuccesses": 11,
+    "optimizedCostPerSuccessUsd": 0.0006063319999999999,
+    "baselineCostPerSuccessUsd": 0.0031670978181818177,
+    "costReduction": 0.8085528029733904,
+    "costReductionCi95": [
+      0.7640601718829102,
+      0.8466142681006483
+    ],
+    "optimizedMedianMs": 12344,
+    "baselineMedianMs": 15300,
+    "timeReduction": 0.19320261437908498,
+    "timeReductionCi95": [
+      0.07029807438670535,
+      0.4143301373412801
+    ],
+    "successRegressionPoints": -8.333333333333337
+  },
+  "registry": {
+    "confirmedEntries": 2,
+    "stagedCandidates": 3,
+    "verifiedHashes": 22,
+    "officialCanonical": true,
+    "bugHuntCanonical": false,
+    "bugHuntScoreClaim": null,
+    "externalBaselineHash": "975bd3fdcd9a65181d95d01d55d58d6cbb0c0c0cc20f5fe60ef5975effb884e8"
+  },
+  "trackedTreeScan": {
+    "trackedFiles": 97,
+    "localHomePathMatches": [],
+    "credentialMatches": []
+  }
+}

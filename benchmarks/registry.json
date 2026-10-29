@@ -1,0 +1,286 @@
+{
+  "schema": "neonforge.baseline-registry.v1",
+  "version": 1,
+  "updatedAt": "2026-10-28T15:29:35.603Z",
+  "entries": [
+    {
+      "id": "deepseek-official-2026-10-28",
+      "kind": "model-quality",
+      "status": "confirmed",
+      "canonical": true,
+      "publisher": "DeepSeek",
+      "benchmarkVersion": "DeepSeek-V4.1-Flash-1017",
+      "canonicalModel": "deepseek-flash",
+      "modelVersion": "DeepSeek-V4.1-Flash-1017",
+      "retrievalDate": "2026-10-28",
+      "methodology": "Official DeepSeek release, API pricing, and model-card values. No local reproduction; values are cited as published.",
+      "sources": [
+        {
+          "url": "https://www.deepseek.com/news/deepseek-v4-1-flash/",
+          "publisher": "DeepSeek",
+          "retrievedAt": "2026-10-28",
+          "title": "DeepSeek V4.1 Flash release"
+        },
+        {
+          "url": "https://api-docs.deepseek.com/quick_start/pricing/",
+          "publisher": "DeepSeek API Docs",
+          "retrievedAt": "2026-10-28",
+          "title": "Models and pricing"
+        },
+        {
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+          "publisher": "DeepSeek AI / Hugging Face model card",
+          "retrievedAt": "2026-10-28",
+          "title": "DeepSeek-V4.1-Flash model card"
+        }
+      ],
+      "localFiles": [
+        {
+          "path": "benchmarks/sources/deepseek/2026-10-28/news.html",
+          "sha256": "1b5a481a4f2ed6bfaf5ae8db3eb1408296322630022e0caa86867de6ca7a8631",
+          "bytes": 117934,
+          "mediaType": "text/html",
+          "role": "official-source"
+        },
+        {
+          "path": "benchmarks/sources/deepseek/2026-10-28/pricing.html",
+          "sha256": "b856a6e93fa4793ecc8f3fd03a01bb7d8f7572f78a4739da8ce6dbdb09328d66",
+          "bytes": 26043,
+          "mediaType": "text/html",
+          "role": "official-source"
+        },
+        {
+          "path": "benchmarks/sources/deepseek/2026-10-28/model-card.md",
+          "sha256": "347c9db4e5506acb531cbc3b724407ab88e9af8781679152f0823d7bac16d251",
+          "bytes": 13110,
+          "mediaType": "text/markdown",
+          "role": "official-source"
+        }
+      ],
+      "normalizedPath": "benchmarks/external-baseline.json",
+      "integrityHash": "975bd3fdcd9a65181d95d01d55d58d6cbb0c0c0cc20f5fe60ef5975effb884e8",
+      "notes": "Official values are external reference data, not a NeonForge reproduction.",
+      "normalizedHash": "a55dcb656d638967ea3f2a191bdef16978e550c9d0bb2ff894deb408dbe6cd49"
+    },
+    {
+      "id": "bug-hunt-bench-2026-10-27",
+      "kind": "harness-score",
+      "status": "confirmed",
+      "canonical": false,
+      "publisher": "Pawel Huryn / Product Compass",
+      "benchmarkVersion": "Bug Hunt Bench 2026-10-27",
+      "canonicalModel": "deepseek-flash",
+      "modelVersion": "DeepSeek-V4.1-Flash-1017",
+      "retrievalDate": "2026-10-28",
+      "methodology": "Two production repositories, 105 planted bugs, identical prompts, high effort, 5 attempts, 3 hours per repository, no network/git history, blind judge against a withheld answer key. The 9-harness high-effort table is from the cited secondary article/X post; the official README snapshot exposes four high-effort DeepSeek rows.",
+      "sources": [
+        {
+          "url": "https://github.com/phuryn/bug-hunt-bench",
+          "publisher": "Pawel Huryn / Product Compass",
+          "retrievedAt": "2026-10-28",
+          "title": "Bug Hunt Bench repository"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/phuryn/bug-hunt-bench/main/README.md",
+          "publisher": "Pawel Huryn / Product Compass",
+          "retrievedAt": "2026-10-28",
+          "title": "Bug Hunt Bench README"
+        },
+        {
+          "url": "https://bughunt.productcompass.pm/method",
+          "publisher": "Pawel Huryn / Product Compass",
+          "retrievedAt": "2026-10-28",
+          "title": "Bug Hunt Bench method"
+        },
+        {
+          "url": "https://x.com/PawelHuryn/status/2112571119412646370",
+          "publisher": "Pawel Huryn",
+          "retrievedAt": "2026-10-28",
+          "title": "89 repeated runs across 9 harnesses"
+        },
+        {
+          "url": "https://x.com/PawelHuryn/status/2111730046691836064",
+          "publisher": "Pawel Huryn",
+          "retrievedAt": "2026-10-28",
+          "title": "DeepSeek V4.1 Flash harness effort results"
+        },
+        {
+          "url": "https://mp.weixin.qq.com/s/UR09ZMYyPp4y8ETp-MSlYw",
+          "publisher": "ronghuaiyang / WeChat",
+          "retrievedAt": "2026-10-28",
+          "title": "harness配合DeepSeek V4.1 Flash 横评"
+        }
+      ],
+      "localFiles": [
+        {
+          "path": "benchmarks/sources/bug-hunt-bench/2026-10-27/README.md",
+          "sha256": "50a37d1565d3d1d4873c00c9aef548841501a6174b20e4ccd43bb5a2e335c8af",
+          "bytes": 29629,
+          "mediaType": "text/markdown",
+          "role": "official-source"
+        },
+        {
+          "path": "benchmarks/sources/bug-hunt-bench/2026-10-27/method.html",
+          "sha256": "e3072ffcac8134d04464171d3ac94f3c99edfcb73bc1269d6f14bd8f9aacc445",
+          "bytes": 7553,
+          "mediaType": "text/html",
+          "role": "official-source"
+        },
+        {
+          "path": "benchmarks/sources/bug-hunt-bench/2026-10-27/leaderboard.html",
+          "sha256": "a4a8a9615aabb99d5e2fa05d08757526841e06d8b3e617fa4e337813e874329b",
+          "bytes": 17116,
+          "mediaType": "text/html",
+          "role": "official-source"
+        },
+        {
+          "path": "benchmarks/sources/bug-hunt-bench/2026-10-27/results/README.md",
+          "sha256": "d779a4e3845725cfda8a648ea4d6a0238afc8aa8a82a5e52e14449f607c97a0f",
+          "bytes": 6691,
+          "mediaType": "text/markdown",
+          "role": "method-or-notes"
+        },
+        {
+          "path": "benchmarks/sources/bug-hunt-bench/2026-10-27/results/combined-scoreboard.csv",
+          "sha256": "260a1d2c056180d6dbe9dce07a0ca97f120aa85e600073925df03530745dffdd",
+          "bytes": 15851,
+          "mediaType": "text/csv",
+          "role": "raw-results"
+        },
+        {
+          "path": "benchmarks/sources/bug-hunt-bench/2026-10-27/results/coverage.csv",
+          "sha256": "6ebb860e98264cf782872d8b8d6faf41bc30ebdffecaba9c9e2feb01974e47d5",
+          "bytes": 37613,
+          "mediaType": "text/csv",
+          "role": "raw-results"
+        },
+        {
+          "path": "benchmarks/sources/bug-hunt-bench/2026-10-27/results/judge-calibration.md",
+          "sha256": "a2f4472f8ef42ff8a2c13d4ed968dd294fab2ec822b257c58938c3281ce90fbd",
+          "bytes": 5374,
+          "mediaType": "text/markdown",
+          "role": "method-or-notes"
+        },
+        {
+          "path": "benchmarks/sources/bug-hunt-bench/2026-10-27/results/repo1-metrics.csv",
+          "sha256": "3891f420579adf753fc0704bd6af3f52591339dbf471ce1a67516c7d04815005",
+          "bytes": 573594,
+          "mediaType": "text/csv",
+          "role": "raw-results"
+        },
+        {
+          "path": "benchmarks/sources/bug-hunt-bench/2026-10-27/results/repo1-prompt.md",
+          "sha256": "c5ef9240302c98e535c666527b4b4bda7eeeb02ba99446a17cc911b01db6b872",
+          "bytes": 1484,
+          "mediaType": "text/markdown",
+          "role": "prompt"
+        },
+        {
+          "path": "benchmarks/sources/bug-hunt-bench/2026-10-27/results/repo1-scoreboard.csv",
+          "sha256": "827d024d11b19d45cee06c390cc0e0f94be6c437a23c571d49c44e1218c028a7",
+          "bytes": 15749,
+          "mediaType": "text/csv",
+          "role": "raw-results"
+        },
+        {
+          "path": "benchmarks/sources/bug-hunt-bench/2026-10-27/results/repo2-metrics.csv",
+          "sha256": "aa51bf6c04952f0adc2f47bf78926c95a217fdd19c2fd9004a89f109ba8254a8",
+          "bytes": 581420,
+          "mediaType": "text/csv",
+          "role": "raw-results"
+        },
+        {
+          "path": "benchmarks/sources/bug-hunt-bench/2026-10-27/results/repo2-prompt.md",
+          "sha256": "57bc6045c13c3d409443caa93aa9ab25b2538121ced67fe891098633768973fe",
+          "bytes": 1797,
+          "mediaType": "text/markdown",
+          "role": "prompt"
+        },
+        {
+          "path": "benchmarks/sources/bug-hunt-bench/2026-10-27/results/repo2-scoreboard.csv",
+          "sha256": "29062bac47f049f7e6f662ea147a7d6584a82c8c3fefcffd322fa42aa2c2ee3a",
+          "bytes": 15852,
+          "mediaType": "text/csv",
+          "role": "raw-results"
+        },
+        {
+          "path": "benchmarks/sources/bug-hunt-bench/2026-10-27/results/run-notes.md",
+          "sha256": "d698e4e420f507e70ce1f70c4daeabfa2bd92436379161f9167e06d7cae558c0",
+          "bytes": 548070,
+          "mediaType": "text/markdown",
+          "role": "method-or-notes"
+        },
+        {
+          "path": "benchmarks/sources/bug-hunt-bench/2026-10-20/wechat-article.txt",
+          "sha256": "c9a2020c131a33135fe8bba921d672839585709cffd6f111c629bed16aa77c25",
+          "bytes": 4933,
+          "mediaType": "text/plain",
+          "role": "published-secondary"
+        },
+        {
+          "path": "benchmarks/sources/bug-hunt-bench/2026-10-20/x-post-2026-10-20.md",
+          "sha256": "3e8022fcce30c21a74da2e1c14e5094c346485ec5dd86d81290ca4a55344dcb3",
+          "bytes": 687,
+          "mediaType": "text/markdown",
+          "role": "published-secondary"
+        },
+        {
+          "path": "benchmarks/sources/bug-hunt-bench/2026-10-20/x-post-2026-10-18.md",
+          "sha256": "c90c52de72c7594534f914f3db8eef6822581bc0f33822ea9f0d25d6c3a64ff9",
+          "bytes": 573,
+          "mediaType": "text/markdown",
+          "role": "published-secondary"
+        }
+      ],
+      "normalizedPath": "benchmarks/bug-hunt-bench.json",
+      "adapterPath": "benchmarks/adapters/bug-hunt-bench/adapter.json",
+      "integrityHash": "3fbe005a9f740c6388e41348c0e0e61dbe19a484cc168dbea9ca1d61a8cabedf",
+      "notes": "Snapshot only in V1. No NeonForge score is claimed; V2 requires the published blind-judge protocol and target >=40.4 fixed/105.",
+      "normalizedHash": "3fbe005a9f740c6388e41348c0e0e61dbe19a484cc168dbea9ca1d61a8cabedf"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "swe-bench-verified",
+      "status": "staged",
+      "suite": "SWE-bench Verified",
+      "sourceUrl": "https://www.swebench.com/",
+      "method": "Real GitHub issue resolution with executable tests and official leaderboard.",
+      "whyRelevant": "Measures repository-level bug fixing and regression safety with a widely audited issue set.",
+      "requiredData": [
+        "official task manifest",
+        "evaluation harness",
+        "model/harness/effort rows",
+        "retrieval date and integrity hash"
+      ]
+    },
+    {
+      "id": "terminal-bench-2-1",
+      "status": "staged",
+      "suite": "Terminal-Bench 2.1",
+      "sourceUrl": "https://www.tbench.ai/",
+      "method": "Terminal-native agent tasks with an official leaderboard and reproducible harness.",
+      "whyRelevant": "Matches NeonForge CLI TUI, shell, and workspace execution behavior.",
+      "requiredData": [
+        "task manifest",
+        "official harness version",
+        "leaderboard rows",
+        "retrieval date and integrity hash"
+      ]
+    },
+    {
+      "id": "osworld",
+      "status": "staged",
+      "suite": "OSWorld",
+      "sourceUrl": "https://os-world.github.io/",
+      "method": "Computer-use benchmark with environment-backed tasks and published methodology.",
+      "whyRelevant": "Covers the future Desktop surface and multi-step operating-system interaction.",
+      "requiredData": [
+        "official task environment",
+        "evaluation scripts",
+        "published leaderboard subset",
+        "retrieval date and integrity hash"
+      ]
+    }
+  ]
+}

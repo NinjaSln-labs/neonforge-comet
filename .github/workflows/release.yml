@@ -1,0 +1,26 @@
+name: release
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish_release:
+        description: Upload the attested evidence bundle to the GitHub release
+        required: false
+        default: false
+        type: boolean
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  artifact-metadata: write
+  attestations: write
+  contents: write
+  id-token: write
+
+jobs:
+  evidence:
+    uses: ./.github/workflows/release-evidence.yml
+    with:
+      publish_release: ${{ inputs.publish_release || startsWith(github.ref, 'refs/tags/') }}
+    secrets: inherit

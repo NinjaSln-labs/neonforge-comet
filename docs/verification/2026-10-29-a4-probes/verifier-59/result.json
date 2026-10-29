@@ -1,0 +1,112 @@
+{
+  "acceptance": [
+    {
+      "id": "A1",
+      "result": "passed",
+      "reason": "An independent mock CLI-runtime probe requested and approved a workspace write and a shell command. approved.txt and shell.txt were created, two approval.decided events recorded policy=balanced, and artifact.recorded plus session.completed were persisted. pnpm test passed 33/33 including the tool-loop coverage."
+    },
+    {
+      "id": "A2",
+      "result": "passed",
+      "reason": "apps/cli/src/render.ts renders approvals, resumed approvals, diffs, command stdout/stderr and exit codes, usage, and completion. The Linux, Darwin, and Windows TUI smoke reports each contain 12/12 exit-zero results with timeline, approval, diff, usage, and completion true; each smoke hash matches its persona report."
+    },
+    {
+      "id": "A3",
+      "result": "passed",
+      "reason": "The provider configuration path carries base URL, credential reference, model, and protocol through all three adapters. All three protocol-smoke records completed a real streaming session with vendor-prefixed model commandcode-plan/deepseek/deepseek-v4.1-flash and canonical model deepseek-flash. The official DeepSeek URL uses the same openai-chat path, although the official endpoint itself was not directly invoked in this environment."
+    },
+    {
+      "id": "A4",
+      "result": "failed",
+      "reason": "The pre-dispatch guard rejects a non-DeepSeek request model, but the returned provider model is not checked. An independent probe requested deepseek-flash from all three adapters while the provider returned model gpt-4.1; every adapter accepted and normalized the response (chat, Responses, and Anthropic text) instead of rejecting it. This violates the spec scenario where a provider returns a non-DeepSeek model."
+    },
+    {
+      "id": "A5",
+      "result": "passed",
+      "reason": "The agent appends assistant reasoningContent and tool calls before the tool result, and the passing tool-loop test observes the prior reasoning_content in the second request. The request path always carries the selected reasoning effort, and live persona events show multi-turn tool loops completing without reasoning-continuity errors."
+    },
+    {
+      "id": "A6",
+      "result": "passed",
+      "reason": "buildStableSystemPrefix is deterministic across reversed tool ordering and omits volatile nonce data in optimized mode. model.completed events persist input, output, cache-hit, cache-miss, reasoning, latency, and provider model data; persona and A/B evidence contain populated cache telemetry."
+    },
+    {
+      "id": "A7",
+      "result": "passed",
+      "reason": "Resolution covers auto, canonical, compatibility aliases, and unambiguous vendor-prefixed DeepSeek names. session.created, model.selected, and model.requested persist the provider model, canonical model, and selection reason. An independent CLI probe with deepseek-v4-pro recorded 'alias deepseek-v4-pro -> deepseek-flash'; the active registry has only one canonical model, so the conditional alternative-override branch is not instantiated."
+    },
+    {
+      "id": "A8",
+      "result": "passed",
+      "reason": "An independent workspace-auto probe automatically approved and recorded a workspace write while separately gating command and network actions. The command and web_fetch were denied before execution, while the write succeeded. Events recorded policy=workspace-auto, automatic=true for the write, explicit non-automatic denials for the other actions, and the session completed."
+    },
+    {
+      "id": "A9",
+      "result": "passed",
+      "reason": "The targeted resume test passed: the original event history and pending approval were preserved, approval.resumed was emitted, the dangling write executed, artifact.recorded was persisted, and the tool result reached the next model request before completion."
+    },
+    {
+      "id": "A10",
+      "result": "passed",
+      "reason": "The passing redaction test covers bearer, API-key, authorization, and token forms; tool command environments are sanitized of credential-like variables; provider and tool errors call redact. A repository-wide scan of dist JSON evidence found no raw sk-, bearer, authorization, or api-key values."
+    },
+    {
+      "id": "A11",
+      "result": "passed",
+      "reason": "An independent headless CLI probe parsed every stdout line as JSON. A blocked write exited 3 with last record type approval-required plus sessionId and resume command; workspace-auto exited 0 with a final result record and completed session. The CLI also defines stable exit categories 0 through 5."
+    },
+    {
+      "id": "A12",
+      "result": "passed",
+      "reason": "The passing test suite rejects invalid/non-HTTPS or credential-bearing URLs, missing credentials, unsupported protocols, non-DeepSeek request identifiers, and unsupported capabilities before adapter dispatch. Probes observe zero provider requests and no session creation for locally knowable failures; a non-empty invalid credential can only be authenticated by the provider."
+    },
+    {
+      "id": "A13",
+      "result": "passed",
+      "reason": "pnpm release:check reports Linux 22,012 bytes, Darwin 22,063 bytes, and Windows 22,086 bytes, all below 50,000,000. Each tar archive contains only package.json and the 96,924-byte neonforge.mjs bundle, with no model weights, browser engine, or bundled Node runtime. All three extracted bundles ran 'node neonforge.mjs version' successfully."
+    },
+    {
+      "id": "A14",
+      "result": "passed",
+      "reason": "The Linux, Darwin, and Windows TUI smoke reports are bound to source revision 64b5bff4c9155abc7d6fad0d1234f9b0910b2a08f01f5ade019bdcb9b9d447ff. Each has 12 exit-zero completed scenarios with timeline, approval, diff, usage, and completion true, and each report hash link verifies against its persona report."
+    },
+    {
+      "id": "A15",
+      "result": "passed",
+      "reason": "pnpm test passed all protocol streaming, tool-call, reasoning, usage, provider-error, cancellation, and outbound DeepSeek-policy tests for all three adapters. An independent Responses probe observed input items [user, assistant, function_call, function_call_output] with call_id call-1 and no role=tool, tool_calls, or tool_call_id fields; all three real streaming smoke records passed."
+    },
+    {
+      "id": "A16",
+      "result": "passed",
+      "reason": "Each platform report contains 12 unique personas and 12/12 passed scenarios, for 36/36 total. Every deterministic assertion is true, all 12 evaluators per platform returned pass, and all reports have zero P0 and zero P1 defects. The simulator and evaluator are separate model sessions."
+    },
+    {
+      "id": "A17",
+      "result": "passed",
+      "reason": "benchmarks/external-baseline.json records three DeepSeek-published sources with URLs, publisher, model and benchmark versions, retrieval date, raw values, units, and aggregation methods. SHA-256 over JSON.stringify(sources) recomputes to 975bd3fdcd9a65181d95d01d55d58d6cbb0c0c0cc20f5fe60ef5975effb884e8, matching the recorded integrity hash; all local source hashes also match the registry."
+    },
+    {
+      "id": "A18",
+      "result": "passed",
+      "reason": "Formal A18 is the efficiency item. Independent recomputation from the six paired samples gives cost per successful task of $0.001919082 versus $0.004104233 (53.241% lower), median wall time of 13,176.5 ms versus 15,644 ms (15.773% lower), and optimized success 6/6 versus baseline 5/6 (negative regression). The 15% cost, 10% time, and 2-point no-regression criteria are met."
+    },
+    {
+      "id": "A19",
+      "result": "passed",
+      "reason": "Formal A19 is the local baseline registry. pnpm baseline:verify passed offline with 2 confirmed entries and 3 staged candidates, and pnpm baseline:adapter validated 105 bugs, 2 repositories, 5 attempts, 10,800 seconds per repository, and V2 target 40.4. All 20 local source hashes and both normalized hashes recompute correctly; Bug Hunt is status=confirmed, canonical=false with scoreClaim=null, and V1 makes no Bug Hunt score claim."
+    }
+  ],
+  "attempt": 1,
+  "iteration": 5,
+  "risks": [
+    "A4 is a product defect: a provider-returned non-DeepSeek model is accepted by all three adapters after a DeepSeek request.",
+    "Real provider smoke used a loopback Magpie-compatible DeepSeek gateway rather than directly invoking api.deepseek.com; the official endpoint configuration path was inspected but not exercised end-to-end.",
+    "The A/B time reduction is 15.773%, but its six-sample bootstrap CI includes zero; only the median threshold and no-success-regression criteria are met. Optimized p95 wall time is also higher than baseline p95 in the guardrail data.",
+    "A non-empty invalid credential cannot be proven invalid without a provider response; only missing or locally invalid credentials are rejected before dispatch.",
+    "License/redistribution rationale for registry sources is documentary in benchmarks/sources/README.md and source headers rather than a structured field on each registry entry.",
+    "Native macOS and Windows TUI reports were inspected and hash-verified, while direct installer extraction and launch were rerun only on the current Linux host.",
+    "dist/, release evidence, CodeGraph, dependencies, and agent harness directories are intentionally untracked. The Git baseline contains only tracked product source, specs, tests, scripts, docs, benchmark sources, and .comet/config.yaml; no tracked home paths or credentials were found."
+  ],
+  "summary": "Independent read-only verification passed all five required gates and confirmed clean Git-baseline provenance, but one formal acceptance item fails. A4 is not met because all three adapters accept a provider response model of gpt-4.1 when deepseek-flash was requested. A1-A3 and A5-A19 are supported by source inspection, passing tests, machine-readable evidence, independent behavioral probes, hash recomputation, and installer inspection. Final result: 18 passed, 1 failed, 0 blocked.",
+  "verdict": "fail"
+}

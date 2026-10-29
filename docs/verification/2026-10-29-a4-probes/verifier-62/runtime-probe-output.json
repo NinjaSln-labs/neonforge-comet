@@ -1,0 +1,31 @@
+{
+  "A1": {
+    "approvals": [
+      "write",
+      "command"
+    ],
+    "writeCreated": true,
+    "shellCreated": true,
+    "artifactRecorded": true,
+    "completed": "completed"
+  },
+  "A8": {
+    "balancedApprovals": [
+      "write",
+      "command",
+      "network"
+    ],
+    "balancedDeniedAll": true,
+    "workspaceAutoCallbackApprovals": [
+      "command",
+      "network"
+    ],
+    "automaticWrite": {
+      "allowed": true,
+      "scope": "session",
+      "policy": "workspace-auto",
+      "automatic": true
+    },
+    "workspaceAutoExplicitDenials": 2
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema": "neonforge.benchmark-adapter.v1",
+  "id": "bug-hunt-bench",
+  "suiteVersion": "2026-10-27",
+  "mode": "contract-and-validation",
+  "canonicalModel": "deepseek-flash",
+  "modelVersion": "DeepSeek-V4.1-Flash-1017",
+  "effort": "high",
+  "taskCount": 105,
+  "repositories": [
+    {
+      "id": "repo1",
+      "environmentKey": "NEONFORGE_BUG_HUNT_REPO1",
+      "promptFile": "benchmarks/sources/bug-hunt-bench/2026-10-27/results/repo1-prompt.md",
+      "plantedBugs": 45
+    },
+    {
+      "id": "repo2",
+      "environmentKey": "NEONFORGE_BUG_HUNT_REPO2",
+      "promptFile": "benchmarks/sources/bug-hunt-bench/2026-10-27/results/repo2-prompt.md",
+      "plantedBugs": 60
+    }
+  ],
+  "runPolicy": {
+    "attemptsPerTask": 5,
+    "timeLimitSecondsPerRepository": 10800,
+    "network": false,
+    "gitHistory": false,
+    "oneRoundPerRepository": true,
+    "requiredEvidenceFile": "BUGS_FOUND.md",
+    "mustKeepTestsGreen": true,
+    "mustNotWeakenTests": true
+  },
+  "normalizedOutput": {
+    "diff": "git diff after the run",
+    "bugsFoundFile": "BUGS_FOUND.md",
+    "testLog": "preserved test commands and output",
+    "usage": [
+      "inputTokens",
+      "outputTokens",
+      "reasoningTokens",
+      "cacheHitTokens",
+      "cacheMissTokens",
+      "costUsd",
+      "wallMs",
+      "modelTurns",
+      "toolCalls",
+      "userInterventions"
+    ]
+  },
+  "scoringContract": {
+    "judge": "independent blind judge with withheld answer key",
+    "primaryMetric": "verified planted bugs fixed / 105",
+    "repoSplitRequired": true,
+    "extrasAreReportedButNotScored": true,
+    "noPartialCredit": true,
+    "neonForgeMayNotSelfScore": true
+  },
+  "v1Boundary": {
+    "validateOnly": true,
+    "scoreClaim": null
+  },
+  "v2Target": {
+    "fixed": 40.4,
+    "comparison": "tie the published Pi and Grok Build CLI high-effort leaders"
+  },
+  "sourceSnapshot": "benchmarks/bug-hunt-bench.json"
+}

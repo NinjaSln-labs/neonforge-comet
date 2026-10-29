@@ -1,0 +1,38 @@
+{
+  "name": "neonforge",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "esbuild apps/cli/src/main.ts --bundle --platform=node --format=esm --target=node22 --outfile=dist/neonforge.mjs",
+    "build:custom": "node scripts/release/build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "tsc --noEmit && node scripts/test.mjs",
+    "test:e2e": "tsc --noEmit && node scripts/test.mjs tests/e2e",
+    "test:personas": "node scripts/e2e/run-personas.mjs",
+    "smoke:protocols": "node scripts/smoke/protocols.mjs",
+    "benchmark:ab": "node scripts/benchmarks/ab.mjs",
+    "source:manifest": "node scripts/release/write-source-manifest.mjs",
+    "evidence:assemble": "node scripts/release/assemble-evidence.mjs",
+    "evidence:verify": "node scripts/release/verify-evidence-bundle.mjs",
+    "baseline:verify": "node --experimental-strip-types apps/cli/src/main.ts benchmark verify",
+    "baseline:adapter": "node scripts/benchmarks/bug-hunt-bench.mjs --validate",
+    "release:check": "node scripts/release/check-size.mjs",
+    "privacy:check": "node scripts/release/check-public-tree.mjs",
+    "verify:evidence": "node scripts/release/check-evidence.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "esbuild": "^0.27.0",
+    "typescript": "^5.9.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

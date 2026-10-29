@@ -1,0 +1,30 @@
+# Third-Party Notices
+
+NeonForge is licensed under the MIT License. See LICENSE.
+
+## Distributed runtime
+
+NeonForge installers contain the NeonForge application bundle and package
+metadata only. They do not bundle third-party JavaScript packages, model
+weights, a browser engine, or the Node.js runtime.
+
+NeonForge imports only Node.js built-in modules at runtime. Node.js 22 or newer
+is a user-provided prerequisite and is not part of the NeonForge artifact.
+Node.js is distributed under its own license:
+https://github.com/nodejs/node/blob/main/LICENSE
+
+## Build-time tools
+
+The following development tools are used to type-check, bundle, and validate
+NeonForge. They are not included in the installers and are listed here for
+transparency.
+
+- esbuild 0.27.x and its optional platform packages: MIT License.
+  Copyright (c) 2020 Evan Wallace.
+  https://github.com/evanw/esbuild/blob/main/LICENSE.md
+- TypeScript 5.9.x: Apache License 2.0.
+  Copyright Microsoft Corporation.
+  https://github.com/microsoft/TypeScript/blob/main/LICENSE.txt
+- @types/node 24.x: MIT License.
+  Copyright Microsoft Corporation.
+  https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/LICENSE

@@ -1,0 +1,164 @@
+{
+  "schema": "neonforge.baseline-registry-source.v1",
+  "version": 1,
+  "updatedAt": "2026-10-28",
+  "entries": [
+    {
+      "id": "deepseek-official-2026-10-28",
+      "kind": "model-quality",
+      "status": "confirmed",
+      "canonical": true,
+      "publisher": "DeepSeek",
+      "benchmarkVersion": "DeepSeek-V4.1-Flash-1017",
+      "canonicalModel": "deepseek-flash",
+      "modelVersion": "DeepSeek-V4.1-Flash-1017",
+      "retrievalDate": "2026-10-28",
+      "methodology": "Official DeepSeek release, API pricing, and model-card values. No local reproduction; values are cited as published.",
+      "sources": [
+        {
+          "url": "https://www.deepseek.com/news/deepseek-v4-1-flash/",
+          "publisher": "DeepSeek",
+          "retrievedAt": "2026-10-28",
+          "title": "DeepSeek V4.1 Flash release"
+        },
+        {
+          "url": "https://api-docs.deepseek.com/quick_start/pricing/",
+          "publisher": "DeepSeek API Docs",
+          "retrievedAt": "2026-10-28",
+          "title": "Models and pricing"
+        },
+        {
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+          "publisher": "DeepSeek AI / Hugging Face model card",
+          "retrievedAt": "2026-10-28",
+          "title": "DeepSeek-V4.1-Flash model card"
+        }
+      ],
+      "localFiles": [
+        "benchmarks/sources/deepseek/2026-10-28/news.html",
+        "benchmarks/sources/deepseek/2026-10-28/pricing.html",
+        "benchmarks/sources/deepseek/2026-10-28/model-card.md"
+      ],
+      "normalizedPath": "benchmarks/external-baseline.json",
+      "integrityHash": "975bd3fdcd9a65181d95d01d55d58d6cbb0c0c0cc20f5fe60ef5975effb884e8",
+      "notes": "Official values are external reference data, not a NeonForge reproduction."
+    },
+    {
+      "id": "bug-hunt-bench-2026-10-27",
+      "kind": "harness-score",
+      "status": "confirmed",
+      "canonical": false,
+      "publisher": "Pawel Huryn / Product Compass",
+      "benchmarkVersion": "Bug Hunt Bench 2026-10-27",
+      "canonicalModel": "deepseek-flash",
+      "modelVersion": "DeepSeek-V4.1-Flash-1017",
+      "retrievalDate": "2026-10-28",
+      "methodology": "Two production repositories, 105 planted bugs, identical prompts, high effort, 5 attempts, 3 hours per repository, no network/git history, blind judge against a withheld answer key. The 9-harness high-effort table is from the cited secondary article/X post; the official README snapshot exposes four high-effort DeepSeek rows.",
+      "sources": [
+        {
+          "url": "https://github.com/phuryn/bug-hunt-bench",
+          "publisher": "Pawel Huryn / Product Compass",
+          "retrievedAt": "2026-10-28",
+          "title": "Bug Hunt Bench repository"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/phuryn/bug-hunt-bench/main/README.md",
+          "publisher": "Pawel Huryn / Product Compass",
+          "retrievedAt": "2026-10-28",
+          "title": "Bug Hunt Bench README"
+        },
+        {
+          "url": "https://bughunt.productcompass.pm/method",
+          "publisher": "Pawel Huryn / Product Compass",
+          "retrievedAt": "2026-10-28",
+          "title": "Bug Hunt Bench method"
+        },
+        {
+          "url": "https://x.com/PawelHuryn/status/2112571119412646370",
+          "publisher": "Pawel Huryn",
+          "retrievedAt": "2026-10-28",
+          "title": "89 repeated runs across 9 harnesses"
+        },
+        {
+          "url": "https://x.com/PawelHuryn/status/2111730046691836064",
+          "publisher": "Pawel Huryn",
+          "retrievedAt": "2026-10-28",
+          "title": "DeepSeek V4.1 Flash harness effort results"
+        },
+        {
+          "url": "https://mp.weixin.qq.com/s/UR09ZMYyPp4y8ETp-MSlYw",
+          "publisher": "ronghuaiyang / WeChat",
+          "retrievedAt": "2026-10-28",
+          "title": "harness配合DeepSeek V4.1 Flash 横评"
+        }
+      ],
+      "localFiles": [
+        "benchmarks/sources/bug-hunt-bench/2026-10-27/README.md",
+        "benchmarks/sources/bug-hunt-bench/2026-10-27/method.html",
+        "benchmarks/sources/bug-hunt-bench/2026-10-27/leaderboard.html",
+        "benchmarks/sources/bug-hunt-bench/2026-10-27/results/README.md",
+        "benchmarks/sources/bug-hunt-bench/2026-10-27/results/combined-scoreboard.csv",
+        "benchmarks/sources/bug-hunt-bench/2026-10-27/results/coverage.csv",
+        "benchmarks/sources/bug-hunt-bench/2026-10-27/results/judge-calibration.md",
+        "benchmarks/sources/bug-hunt-bench/2026-10-27/results/repo1-metrics.csv",
+        "benchmarks/sources/bug-hunt-bench/2026-10-27/results/repo1-prompt.md",
+        "benchmarks/sources/bug-hunt-bench/2026-10-27/results/repo1-scoreboard.csv",
+        "benchmarks/sources/bug-hunt-bench/2026-10-27/results/repo2-metrics.csv",
+        "benchmarks/sources/bug-hunt-bench/2026-10-27/results/repo2-prompt.md",
+        "benchmarks/sources/bug-hunt-bench/2026-10-27/results/repo2-scoreboard.csv",
+        "benchmarks/sources/bug-hunt-bench/2026-10-27/results/run-notes.md",
+        "benchmarks/sources/bug-hunt-bench/2026-10-20/wechat-article.txt",
+        "benchmarks/sources/bug-hunt-bench/2026-10-20/x-post-2026-10-20.md",
+        "benchmarks/sources/bug-hunt-bench/2026-10-20/x-post-2026-10-18.md"
+      ],
+      "normalizedPath": "benchmarks/bug-hunt-bench.json",
+      "adapterPath": "benchmarks/adapters/bug-hunt-bench/adapter.json",
+      "integrityHash": "",
+      "notes": "Snapshot only in V1. No NeonForge score is claimed; V2 requires the published blind-judge protocol and target >=40.4 fixed/105."
+    }
+  ],
+  "candidates": [
+    {
+      "id": "swe-bench-verified",
+      "status": "staged",
+      "suite": "SWE-bench Verified",
+      "sourceUrl": "https://www.swebench.com/",
+      "method": "Real GitHub issue resolution with executable tests and official leaderboard.",
+      "whyRelevant": "Measures repository-level bug fixing and regression safety with a widely audited issue set.",
+      "requiredData": [
+        "official task manifest",
+        "evaluation harness",
+        "model/harness/effort rows",
+        "retrieval date and integrity hash"
+      ]
+    },
+    {
+      "id": "terminal-bench-2-1",
+      "status": "staged",
+      "suite": "Terminal-Bench 2.1",
+      "sourceUrl": "https://www.tbench.ai/",
+      "method": "Terminal-native agent tasks with an official leaderboard and reproducible harness.",
+      "whyRelevant": "Matches NeonForge CLI TUI, shell, and workspace execution behavior.",
+      "requiredData": [
+        "task manifest",
+        "official harness version",
+        "leaderboard rows",
+        "retrieval date and integrity hash"
+      ]
+    },
+    {
+      "id": "osworld",
+      "status": "staged",
+      "suite": "OSWorld",
+      "sourceUrl": "https://os-world.github.io/",
+      "method": "Computer-use benchmark with environment-backed tasks and published methodology.",
+      "whyRelevant": "Covers the future Desktop surface and multi-step operating-system interaction.",
+      "requiredData": [
+        "official task environment",
+        "evaluation scripts",
+        "published leaderboard subset",
+        "retrieval date and integrity hash"
+      ]
+    }
+  ]
+}

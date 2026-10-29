@@ -1,0 +1,40 @@
+{
+  "a1": {
+    "approvals": [
+      "write",
+      "command"
+    ],
+    "files": [
+      "approved.txt",
+      "shell.txt"
+    ],
+    "artifactRecorded": true,
+    "completed": true
+  },
+  "a8": {
+    "automaticWrite": {
+      "allowed": true,
+      "policy": "workspace-auto",
+      "automatic": true,
+      "action": "write"
+    },
+    "manualCommand": {
+      "allowed": false,
+      "policy": "workspace-auto",
+      "automatic": false,
+      "action": "command"
+    },
+    "manualNetwork": {
+      "allowed": false,
+      "policy": "workspace-auto",
+      "automatic": false,
+      "action": "network"
+    },
+    "commandSideEffectAbsent": true
+  },
+  "a10": {
+    "secretInPersistedSession": false,
+    "secretInRedactedText": false,
+    "commandSawCredentialEnvironment": false
+  }
+}

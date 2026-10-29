@@ -1,0 +1,94 @@
+{
+  "observations": [
+    {
+      "case": "openai-chat-buffered-non-deepseek",
+      "requestModel": "deepseek-flash",
+      "responseModel": "gpt-4.1",
+      "outcome": "rejected",
+      "errorName": "DeepSeekModelPolicyError",
+      "errorMessage": "Provider responded with model \"gpt-4.1\", which is outside the allowed DeepSeek family."
+    },
+    {
+      "case": "openai-chat-streaming-non-deepseek",
+      "requestModel": "deepseek-flash",
+      "responseModel": "gpt-4.1",
+      "outcome": "rejected",
+      "errorName": "DeepSeekModelPolicyError",
+      "errorMessage": "Provider responded with model \"gpt-4.1\", which is outside the allowed DeepSeek family."
+    },
+    {
+      "case": "openai-chat-buffered-vendor-deepseek",
+      "requestModel": "deepseek-flash",
+      "responseModel": "vendor/deepseek/deepseek-v4.1-flash",
+      "outcome": "accepted",
+      "providerModel": "vendor/deepseek/deepseek-v4.1-flash"
+    },
+    {
+      "case": "openai-chat-streaming-vendor-deepseek",
+      "requestModel": "deepseek-flash",
+      "responseModel": "vendor/deepseek/deepseek-v4.1-flash",
+      "outcome": "accepted",
+      "providerModel": "vendor/deepseek/deepseek-v4.1-flash"
+    },
+    {
+      "case": "openai-responses-buffered-non-deepseek",
+      "requestModel": "deepseek-flash",
+      "responseModel": "gpt-4.1",
+      "outcome": "rejected",
+      "errorName": "DeepSeekModelPolicyError",
+      "errorMessage": "Provider responded with model \"gpt-4.1\", which is outside the allowed DeepSeek family."
+    },
+    {
+      "case": "openai-responses-streaming-non-deepseek",
+      "requestModel": "deepseek-flash",
+      "responseModel": "gpt-4.1",
+      "outcome": "rejected",
+      "errorName": "DeepSeekModelPolicyError",
+      "errorMessage": "Provider responded with model \"gpt-4.1\", which is outside the allowed DeepSeek family."
+    },
+    {
+      "case": "openai-responses-buffered-vendor-deepseek",
+      "requestModel": "deepseek-flash",
+      "responseModel": "vendor/deepseek/deepseek-v4.1-flash",
+      "outcome": "accepted",
+      "providerModel": "vendor/deepseek/deepseek-v4.1-flash"
+    },
+    {
+      "case": "openai-responses-streaming-vendor-deepseek",
+      "requestModel": "deepseek-flash",
+      "responseModel": "vendor/deepseek/deepseek-v4.1-flash",
+      "outcome": "accepted",
+      "providerModel": "vendor/deepseek/deepseek-v4.1-flash"
+    },
+    {
+      "case": "anthropic-messages-buffered-non-deepseek",
+      "requestModel": "deepseek-flash",
+      "responseModel": "gpt-4.1",
+      "outcome": "rejected",
+      "errorName": "DeepSeekModelPolicyError",
+      "errorMessage": "Provider responded with model \"gpt-4.1\", which is outside the allowed DeepSeek family."
+    },
+    {
+      "case": "anthropic-messages-streaming-non-deepseek",
+      "requestModel": "deepseek-flash",
+      "responseModel": "gpt-4.1",
+      "outcome": "rejected",
+      "errorName": "DeepSeekModelPolicyError",
+      "errorMessage": "Provider responded with model \"gpt-4.1\", which is outside the allowed DeepSeek family."
+    },
+    {
+      "case": "anthropic-messages-buffered-vendor-deepseek",
+      "requestModel": "deepseek-flash",
+      "responseModel": "vendor/deepseek/deepseek-v4.1-flash",
+      "outcome": "accepted",
+      "providerModel": "vendor/deepseek/deepseek-v4.1-flash"
+    },
+    {
+      "case": "anthropic-messages-streaming-vendor-deepseek",
+      "requestModel": "deepseek-flash",
+      "responseModel": "vendor/deepseek/deepseek-v4.1-flash",
+      "outcome": "accepted",
+      "providerModel": "vendor/deepseek/deepseek-v4.1-flash"
+    }
+  ]
+}

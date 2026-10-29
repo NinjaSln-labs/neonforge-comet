@@ -1,0 +1,94 @@
+{
+  "schema": "neonforge.external-baseline.v1",
+  "canonicalModel": "deepseek-flash",
+  "snapshotDate": "2026-10-28",
+  "sources": [
+    {
+      "publisher": "DeepSeek",
+      "url": "https://www.deepseek.com/news/deepseek-v4-1-flash/",
+      "benchmarkVersion": "DeepSeek-V4.1-Flash-1017",
+      "modelVersion": "DeepSeek-V4.1-Flash-1017",
+      "retrievalDate": "2026-10-28",
+      "rawValues": {
+        "parameters": "552B MoE",
+        "inputActiveParameters": "8B",
+        "outputActiveParameters": "16B",
+        "releaseClaim": "V4.1 Flash surpasses DeepSeek V4 Pro on benchmark tests"
+      },
+      "units": {
+        "parameters": "parameters",
+        "inputActiveParameters": "parameters",
+        "outputActiveParameters": "parameters",
+        "releaseClaim": "published claim"
+      },
+      "aggregationMethod": "Official DeepSeek release page; no local reproduction"
+    },
+    {
+      "publisher": "DeepSeek API Docs",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing/",
+      "benchmarkVersion": "Models & Pricing retrieved 2026-10-28",
+      "modelVersion": "DeepSeek-V4.1-Flash-1017",
+      "retrievalDate": "2026-10-28",
+      "rawValues": {
+        "contextLengthTokens": 1000000,
+        "maxOutputTokens": 384000,
+        "inputCacheHitPriceUSDPerMillionOffPeak": 0.003,
+        "inputCacheMissPriceUSDPerMillionOffPeak": 0.15,
+        "outputPriceUSDPerMillionOffPeak": 0.6,
+        "inputCacheHitPriceUSDPerMillionPeak": 0.006,
+        "inputCacheMissPriceUSDPerMillionPeak": 0.3,
+        "outputPriceUSDPerMillionPeak": 1.2
+      },
+      "units": {
+        "contextLengthTokens": "tokens",
+        "maxOutputTokens": "tokens",
+        "inputCacheHitPriceUSDPerMillionOffPeak": "USD per 1M tokens",
+        "inputCacheMissPriceUSDPerMillionOffPeak": "USD per 1M tokens",
+        "outputPriceUSDPerMillionOffPeak": "USD per 1M tokens",
+        "inputCacheHitPriceUSDPerMillionPeak": "USD per 1M tokens",
+        "inputCacheMissPriceUSDPerMillionPeak": "USD per 1M tokens",
+        "outputPriceUSDPerMillionPeak": "USD per 1M tokens"
+      },
+      "aggregationMethod": "Official model specification and price table; no local reproduction"
+    },
+    {
+      "publisher": "DeepSeek AI / Hugging Face model card",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+      "benchmarkVersion": "DeepSeek-V4.1-Flash evaluation results, retrieved 2026-10-28",
+      "modelVersion": "DeepSeek-V4.1-Flash-1017",
+      "retrievalDate": "2026-10-28",
+      "rawValues": {
+        "gpqaDiamondPassAt1": 90.9,
+        "hlePassAt1": 36.8,
+        "codeforcesRating": 3471,
+        "terminalBench2_1PassAt1": 90.6,
+        "terminalBench3_0PassAt1": 30,
+        "terminalBench4_0PassAt1": 31.2,
+        "deepSweV1_1Resolved": 74.2,
+        "programBenchAlmostAt1": 20.3,
+        "nl2RepoBenchScore": 64,
+        "cyberGymPassAt1": 88.1,
+        "secBenchProPassAt1": 62.8,
+        "automationBenchPassAt1": 54.8,
+        "agentsLastExamPassAt1": 31.8
+      },
+      "units": {
+        "gpqaDiamondPassAt1": "percent",
+        "hlePassAt1": "percent",
+        "codeforcesRating": "rating",
+        "terminalBench2_1PassAt1": "percent",
+        "terminalBench3_0PassAt1": "percent",
+        "terminalBench4_0PassAt1": "percent",
+        "deepSweV1_1Resolved": "percent",
+        "programBenchAlmostAt1": "percent",
+        "nl2RepoBenchScore": "percent",
+        "cyberGymPassAt1": "percent",
+        "secBenchProPassAt1": "percent",
+        "automationBenchPassAt1": "percent",
+        "agentsLastExamPassAt1": "percent"
+      },
+      "aggregationMethod": "Official DeepSeek model card published benchmark table; no local reproduction"
+    }
+  ],
+  "integrityHash": "975bd3fdcd9a65181d95d01d55d58d6cbb0c0c0cc20f5fe60ef5975effb884e8"
+}

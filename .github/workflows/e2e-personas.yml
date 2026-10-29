@@ -1,0 +1,33 @@
+name: e2e-personas
+
+on:
+  workflow_dispatch:
+
+jobs:
+  personas:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.4.2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: node scripts/e2e/run-personas.mjs
+        env:
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: deepseek-flash
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: persona-e2e-${{ matrix.os }}
+          path: dist/e2e/*

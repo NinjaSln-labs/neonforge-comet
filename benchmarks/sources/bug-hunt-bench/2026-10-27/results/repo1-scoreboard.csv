@@ -1,0 +1,209 @@
+model,harness,fixed_of_45,partial,claimed_only,genuine_extras,false_positive_fixes,wall_min,cost_usd_list_equiv
+GPT-5.6 Sol,Codex CLI,13,1,1,9,0,21.9,10.76
+Opus 5,Claude Code,11,0,0,1,0,17.4,15.89
+Fable 5,Claude Code,9,0,1,2,0,14.9,36.42
+Grok 4.5,Grok Build CLI (ACP),5,0,2,2,0,16.5,
+Kimi K3,Claude Code / OpenRouter,4,0,3,0,0,62.3,9.42
+Opus 4.8,Claude Code,2,0,0,0,0,17.4,10.67
+Sonnet 5,Claude Code,1,0,0,0,0,16.4,8.94
+GPT-5.6 Sol (re-run Jul 31),Codex CLI,13,1,0,9,0,37.1,19.56
+GPT-5.6 Luna (max effort),Codex CLI,17,1,0,14,0,21.5,0.4
+GPT-5.6 Luna (high effort),Codex CLI,5,1,0,12,0,51.1,0.32
+DeepSeek V4-Flash,Claude Code / OpenRouter,4,0,0,2,0,9.4,0.21
+GPT-5.6 Sol (max effort),Codex CLI,19,0,0,21,0,84.2,32.53
+Fable 5 (max effort),Claude Code,12,0,0,1,0,24.4,38.88
+Opus 5 (max effort),Claude Code,13,0,2,1,0,33.8,24.78
+Grok 4.5 (high re-run - CLI has no max),Grok Build CLI (ACP),5,1,1,1,0,14.2,6.52
+DeepSeek V4-Flash 0731,Claude Code / OpenRouter,6,0,1,0,0,17.8,0.6
+DeepSeek V4-Pro,Claude Code / OpenRouter,5,0,1,0,0,13.0,0.71
+Qwen3.8-Max,Claude Code / OpenRouter,5,0,0,3,0,66.5,17.99
+"Muse Spark 1.2 (xhigh, Meta API)",Claude Code / Meta API,6,0,0,4,0,14.2,9.58
+Grok 4.5 (re-run Aug 6),Grok Build CLI (ACP),5,0,0,3,0,13.3,3.27
+"Muse Spark 1.2 (default effort, OpenRouter)",Claude Code / OpenRouter,3,0,0,1,0,25.5,9.49
+Grok 4.6 (xhigh),Grok Build CLI (ACP),10,0,0,7,0,17.8,11.29
+Gemini 3.7 Flash (high),Gemini CLI / Google API,8,0,0,0,0,51.6,4.39
+Gemini 3.7 Flash (high; Antigravity CLI retest),Antigravity CLI,4,1,0,0,0,9.0,2.66
+Ox Alpha (stealth; free),Claude Code / OpenRouter,8,0,0,1,0,30.7,0.0
+GLM-5.3,Claude Code / OpenRouter,8,0,1,1,0,33.9,10.28
+GLM-5.3 Flash,Claude Code / OpenRouter,6,0,5,1,0,28.3,0.29
+GPT-5.6 Luna (low effort),Codex CLI,0,2,0,1,0,2.8,0.05
+GPT-5.6 Luna (medium effort),Codex CLI,5,0,0,1,0,7.6,0.17
+Grok 4.6 (low),Grok Build CLI (ACP),6,1,0,2,0,7.7,2.15
+Grok 4.6 (medium),Grok Build CLI (ACP),7,0,2,1,0,9.4,6.3
+Opus 5 (medium effort),Claude Code,11,0,0,1,0,12.1,13.7
+GPT-5.6 Terra (max effort),Codex CLI,16,0,0,25,0,69.9,12.47
+GPT-5.6 Terra (high effort),Codex CLI,7,1,0,11,0,15.0,3.36
+GPT-5.6 Terra (medium effort),Codex CLI,4,1,0,2,0,10.8,2.14
+GPT-5.6 Luna (xhigh effort),Codex CLI,10,0,0,25,0,81.1,1.61
+Grok 4.6 (high),Grok Build CLI (ACP),7,0,1,4,0,14.9,8.05
+GPT-5.6 Terra (xhigh effort),Codex CLI,9,1,0,14,0,32.8,6.26
+Grok 4.6 (xhigh) seq,Grok Build CLI (ACP),8,2,1,4,0,19.1,6.84
+Grok 4.6 (medium) seq,Grok Build CLI (ACP),9,0,0,2,0,9.9,2.55
+Gemini 3.7 Flash seq,Antigravity CLI,4,0,0,1,0,9.5,2.25
+GPT-5.6 Sol (xhigh effort),Codex CLI,18,0,0,20,0,57.5,24.47
+Opus 5 (xhigh effort),Claude Code,14,0,0,2,0,22.3,24.52
+Hy4 Preview,Claude Code / OpenRouter,9,0,3,1,0,29.4,1.24
+Fable 5.1 (max effort),Claude Code,19,1,0,3,0,30.1,28.21
+Fable 5.1,Claude Code,15,1,0,3,0,17.7,19.02
+Fable 5.1 (low effort),Claude Code,13,1,0,2,0,13.4,11.55
+Gemini 3.8 Flash,Claude Code,7,0,0,0,0,13.2,5.01
+GPT-6 Astra (max effort),Codex CLI,24,0,0,23,0,37.2,15.07
+GPT-6 Astra (xhigh effort),Codex CLI,23,0,0,20,0,23.9,10.9
+GPT-6 Astra (high effort),Codex CLI,19,0,0,10,0,20.0,10.02
+GPT-6 Astra (medium effort),Codex CLI,19,0,0,9,0,13.9,8.9
+GPT-6 Astra (low effort),Codex CLI,18,0,0,9,0,18.3,7.14
+GPT-5.6 Sol (medium effort),Codex CLI,13,1,0,8,0,25.7,8.76
+DeepSeek V4.1 Flash (max effort),Claude Code / DeepSeek API,14,0,0,4,0,25.4,0.62
+DeepSeek V4.1 Flash (high effort),Claude Code / DeepSeek API,9,2,2,2,0,14.4,0.18
+"DeepSeek V4-Pro (max effort, DeepSeek API)",Claude Code / DeepSeek API,8,0,2,1,0,19.6,0.89
+"DeepSeek V4-Pro (high effort, DeepSeek API)",Claude Code / DeepSeek API,4,0,1,0,0,11.7,0.48
+Fable 5.1 (medium effort),Claude Code,8,0,1,0,0,10.0,7.21
+Opus 4.8 (max effort),Claude Code,6,0,0,0,0,63.7,28.08
+Sonnet 5 (max effort),Claude Code,3,0,0,0,0,32.9,12.98
+Fable 5.1 (xhigh effort),Claude Code,13,0,2,0,0,25.8,15.45
+"GLM-5.3 (max effort, Z.ai API)",Claude Code / Z.ai API,9,0,0,1,0,16.9,5.66
+Qwen3.8-Flash (low effort),Claude Code / Alibaba API,11,0,3,3,0,42.9,0.67
+Qwen3.8-Flash (max effort),Claude Code / Alibaba API,13,0,3,3,0,40.4,0.62
+"Qwen3.8-Max (max effort, Alibaba API)",Claude Code / Alibaba API,13,0,0,2,0,46.2,8.31
+"Qwen3.8-27B (xhigh effort, Alibaba API)",Claude Code / Alibaba API,6,0,2,1,0,24.8,2.48
+gpt-oss-120b,Claude Code / OpenRouter,0,0,0,0,0,1.1,0.02
+gpt-oss-20b,Claude Code / OpenRouter,0,0,0,0,0,0.9,0.03
+"Muse Spark 1.3 (high effort, Muse Code, OpenRouter)",Muse Code / OpenRouter,6,0,0,3,0,29.0,4.55
+"GLM-5.3 Flash (max effort, Z.ai API)",Claude Code / Z.ai API,10,0,1,0,0,30.0,0.32
+"Muse Spark 1.3 (max effort, Muse Code, Meta API)",Muse Code / Meta API,14,0,0,8,0,51.6,11.53
+"Muse Spark 1.3 (high effort, Muse Code, Meta API)",Muse Code / Meta API,8,0,0,1,0,43.1,6.83
+"Muse Spark 1.3 (xhigh effort, Muse Code, Meta API)",Muse Code / Meta API,8,0,0,2,0,48.4,9.53
+"GLM-5.3 Flash (low effort, Z.ai API)",Claude Code / Z.ai API,7,0,0,1,0,13.2,0.11
+"GLM-5.3 Flash (high effort, Z.ai API)",Claude Code / Z.ai API,9,0,1,1,0,30.4,0.36
+"Muse Spark 1.3 (medium effort, Muse Code, Meta API)",Muse Code / Meta API,4,2,1,5,0,34.4,4.8
+"Muse Spark 1.3 (low effort, Muse Code, Meta API) - mean of 3",Muse Code / Meta API,5.0,0.3,1.3,0.3,0,21.6,3.35
+"Muse Spark 1.3 (medium effort, Muse Code, Meta API) - mean of 3",Muse Code / Meta API,5.3,1.3,0.3,8.7,0,29.5,4.19
+"Muse Spark 1.3 (high effort, Muse Code, Meta API) - mean of 3",Muse Code / Meta API,8.7,0.0,1.0,3.3,0,48.0,7.7
+"Muse Spark 1.3 (xhigh effort, Muse Code, Meta API) - mean of 3",Muse Code / Meta API,8,0,0,3,0,36.5,6.68
+Grok 4.6 (xhigh) seq - mean of 3,Grok Build CLI (ACP),11.7,1.7,0.7,7.3,0,20.6,9.93
+"Muse Spark 1.3 (max effort, Muse Code, Meta API) - mean of 3",Muse Code / Meta API,15.3,0.0,0.0,9.0,0,46.0,10.33
+GPT-6 Astra (max effort) - mean of 3,Codex CLI,22.0,0.3,0.0,22.3,0,41.5,15.0
+DeepSeek V4.1 Flash (max effort) - mean of 3,Claude Code / DeepSeek API,11.3,0.7,0.0,4.0,0,35.3,0.41
+"GLM-5.3 Flash (max effort, Z.ai API) - mean of 3",Claude Code / Z.ai API,9.3,0.0,1.0,1.0,0,34.2,0.41
+Gemini 3.8 Flash - mean of 3,Antigravity CLI,6.7,0.0,0.0,0.0,0,17.5,5.82
+"Qwen3.8-27B (xhigh effort, Alibaba API) - mean of 3",Claude Code / Alibaba API,5.7,0.0,2.0,0.7,0,25.4,2.07
+Qwen3.8-27B 8-bit (OpenRouter/Parasail),Claude Code / OpenRouter,2,0,0,1,0,37.4,1.05
+"Qwen3.8-Max (max effort, Alibaba API) - mean of 3",Claude Code / Alibaba API,12.3,0.7,0.0,2.7,0,57.5,9.56
+gpt-oss-120b - mean of 3,Claude Code / OpenRouter,0.0,0.0,0.0,0.0,0,1.2,0.03
+gpt-oss-20b - mean of 3,Claude Code / OpenRouter,0.0,0.0,0.0,0.0,0,1.2,0.04
+Qwen3.8-27B 8-bit (OpenRouter/Parasail) - mean of 3,Claude Code / OpenRouter,3.7,0.0,0.0,0.3,0,30.8,1.46
+Gemma 4 31B (OpenRouter/Crusoe),Claude Code / OpenRouter,1,0,0,1,0,205.2,8.08
+Gemma 4 31B 4-bit (OpenRouter/CoreWeave),Claude Code / OpenRouter,1,0,0,0,0,12.8,0.26
+GPT-5.6 Sol (max effort) - mean of 2,Codex CLI,19.0,0.5,0.0,21.5,0,100.2,40.66
+"Muse Spark 1.3 (max effort, Muse Code, Meta API) - mean of 5",Muse Code / Meta API,14.2,0.0,0.4,7.0,0,40.1,8.65
+Union Alpha (stealth; free),Claude Code / OpenRouter,16,1,0,6,0,16.3,0.0
+Union Alpha (stealth; free) - mean of 3,Claude Code / OpenRouter,16.0,0.3,0.3,4.3,0,21.0,0.0
+Grok 4.7 (xhigh) seq - mean of 3,Grok Build CLI (ACP),13.3,0.7,0.3,10.0,0,19.5,10.46
+Grok 4.7 (xhigh) seq - mean of 4,Grok Build CLI (ACP),13.0,0.5,0.2,10.0,0,19.5,9.39
+Grok 4.7 (high),Grok Build CLI (ACP),9,2,0,4,0,20.1,5.54
+Grok 4.7 (medium),Grok Build CLI (ACP),11,2,0,6,0,13.8,10.65
+Grok 4.7 (low),Grok Build CLI (ACP),5,0,0,4,0,7.8,2.88
+MiMo-V2.6-Pro,Claude Code / OpenRouter,9,0,1,1,0,28.0,0.45
+Grok 4.7 (high) - mean of 3,Grok Build CLI (ACP),8.7,1.3,0.0,4.3,0,17.4,5.67
+Grok 4.7 (medium) - mean of 3,Grok Build CLI (ACP),12.0,1.7,0.0,8.0,0,14.1,8.7
+MiMo-V2.6-Pro (first-party),Claude Code / Xiaomi first-party,9,0,0,2,0,31.7,0.32
+Grok 4.7 (low) - mean of 3,Grok Build CLI (ACP),10.3,0.0,0.7,9.3,0,14.9,6.95
+GPT-5.6 Luna (max effort) - mean of 2,Codex CLI,16.5,1.0,0.0,17.5,0,88.7,1.39
+MiMo-V2.6-Pro - mean of 2,Claude Code / OpenRouter,10.5,0.0,1.5,2.0,0,58.2,0.58
+MiMo-V2.6-Pro - mean of 3,Claude Code / OpenRouter,11.3,0.0,1.0,2.0,0,55.7,0.55
+GPT-5.6 Luna (max effort) - mean of 3,Codex CLI,16.0,1.3,0.0,25.3,0,113.8,1.87
+Opus 5.5 (max effort),Claude Code,18,1,0,3,0,29.4,20.26
+MiMo-V2.6-Flash - mean of 3,Claude Code / OpenRouter,8.0,0.7,1.7,3.3,0,24.4,0.16
+Opus 5.5 (xhigh effort),Claude Code,16,1,0,5,0,21.3,11.94
+Opus 5.5 (high effort),Claude Code,14,2,0,1,0,10.8,8.89
+Opus 5.5 (medium effort),Claude Code,11,1,0,3,0,6.5,5.91
+GPT-6 Sol (max effort),Codex CLI,18,1,0,21,0,33.2,5.79
+Opus 5.5 (max effort) - mean of 2,Claude Code,17.5,0.5,0.5,3.0,0,27.8,20.63
+Opus 5.5 (xhigh effort) - mean of 2,Claude Code,17.5,1.0,0.0,5.0,0,20.2,12.7
+Opus 5.5 (high effort) - mean of 2,Claude Code,13.5,1.5,0.0,1.5,0,10.4,8.0
+Opus 5.5 (medium effort) - mean of 2,Claude Code,12.5,1.5,0.0,3.0,0,6.0,5.78
+Opus 5.5 (max effort) - mean of 3,Claude Code,19.0,0.7,0.3,3.0,0,31.0,21.91
+Opus 5.5 (xhigh effort) - mean of 3,Claude Code,17.0,1.3,0.3,4.0,0,18.5,12.43
+Opus 5.5 (high effort) - mean of 3,Claude Code,13.0,1.0,0.7,1.3,0,9.5,7.5
+Opus 5.5 (medium effort) - mean of 3,Claude Code,12.7,1.3,0.0,2.3,0,5.8,5.62
+GPT-6 Sol (max effort) - mean of 2,Codex CLI,17.0,1.0,0.0,17.0,0,31.7,5.31
+Opus 5.5 (low effort),Claude Code,11,0,0,1,0,3.9,3.53
+Opus 5.5 (low effort) - mean of 2,Claude Code,12.0,0.0,0.0,1.0,0,4.3,4.43
+Opus 5.5 (low effort) - mean of 3,Claude Code,11.3,0.0,0.7,1.0,0,4.2,4.46
+GPT-6 Sol (max effort) - mean of 3,Codex CLI,15.3,1.3,0.3,16.0,0,33.7,5.47
+GPT-6 Sol (xhigh effort),Codex CLI,10,1,0,12,0,31.4,4.87
+GPT-6 Sol (high effort),Codex CLI,10,1,1,7,0,19.9,2.81
+GPT-6 Sol (medium effort),Codex CLI,3,0,1,5,0,14.4,1.24
+GPT-6 Sol (low effort),Codex CLI,3,0,0,2,0,7.5,0.74
+GPT-6 Luna (max effort),Codex CLI,6,1,0,6,0,48.4,0.28
+GPT-6 Luna (max effort) - mean of 2,Codex CLI,6.5,1.0,0.0,6.0,0,51.8,0.25
+GPT-6 Luna (max effort) - mean of 3,Codex CLI,6.3,1.3,0.0,5.7,0,50.2,0.23
+GPT-6 Luna (xhigh effort),Codex CLI,4,0,0,4,0,21.3,0.2
+GPT-6 Luna (high effort),Codex CLI,2,2,0,2,0,8.3,0.05
+GPT-6 Luna (medium effort),Codex CLI,2,0,0,0,0,5.4,0.04
+GPT-6 Luna (low effort),Codex CLI,1,0,0,0,0,11.2,0.13
+Sonnet 5.5 (max effort),Claude Code,24,1,0,12,0,195.6,98.8
+Sonnet 5.5 (xhigh effort),Claude Code,18,2,0,7,0,94.8,32.24
+Sonnet 5.5 (max effort) - mean of 2,Claude Code,22.5,1.0,0.0,9.0,0,154.5,79.98
+Sonnet 5.5 (high effort),Claude Code,15,0,0,4,0,16.5,9.15
+Sonnet 5.5 (medium effort),Claude Code,8,0,0,0,0,4.8,3.57
+Sonnet 5.5 (low effort),Claude Code,7,0,0,0,0,3.1,2.6
+Sonnet 5.5 (max effort) - mean of 3,Claude Code,22.7,1.0,0.3,12.3,0,213.7,103.52
+Sonnet 5.5 (xhigh effort) - mean of 3,Claude Code,16.0,1.3,0.3,5.0,0,47.6,20.19
+Sonnet 5.5 (high effort) - mean of 3,Claude Code,15.7,0.0,0.0,3.3,0,13.6,8.11
+GPT-6.1 Sol (max effort),Codex CLI,21,1,0,24,0,46.3,2.98
+GPT-6.1 Sol (xhigh effort),Codex CLI,24,0,0,22,0,37.5,2.28
+Sonnet 5.5 (medium effort) - mean of 3,Claude Code,8.7,0.0,0.0,0.7,0,5.3,3.64
+Sonnet 5.5 (low effort) - mean of 3,Claude Code,6.7,0.0,0.3,0.7,0,4.2,2.96
+GPT-6.1 Sol (high effort),Codex CLI,15,1,0,16,0,24.0,1.32
+GPT-6.1 Sol (medium effort),Codex CLI,16,1,0,9,0,16.1,0.86
+GPT-6.1 Sol (low effort),Codex CLI,15,2,0,8,0,15.4,0.8
+GPT-6.1 Sol (max effort) - mean of 3,Codex CLI,22.3,1.0,0.0,27.7,0,60.4,2.72
+GPT-6.1 Sol (xhigh effort) - mean of 3,Codex CLI,22.3,1.3,0.0,24.0,0,43.7,2.11
+GPT-6.1 Sol (high effort) - mean of 2,Codex CLI,17.0,1.5,0.0,14.0,0,27.2,1.29
+GPT-6.1 Sol (medium effort) - mean of 2,Codex CLI,16.0,1.5,0.0,11.0,0,15.8,0.96
+GPT-6.1 Sol (low effort) - mean of 2,Codex CLI,11.5,2.0,0.0,6.0,0,11.1,0.65
+Mistral Large 4 - mean of 3,Claude Code / OpenRouter,5.0,0.0,0.7,0.7,0,60.5,5.35
+Haiku 5.5 (xhigh effort) - mean of 3,Claude Code,9.0,0.0,0.0,1.7,0,12.6,2.3
+Haiku 5.5 (max effort),Claude Code,10,0,2,3,0,19.7,3.4
+Haiku 5.5 (high effort),Claude Code,5,0,1,1,0,6.2,1.06
+Haiku 5.5 (max effort) - mean of 2,Claude Code,10.0,0.0,1.0,2.5,0,17.2,2.73
+Haiku 5.5 (high effort) - mean of 2,Claude Code,5.0,0.0,1.0,1.5,0,7.0,1.15
+Haiku 5.5 (medium effort),Claude Code,5,0,0,1,0,7.4,1.22
+Haiku 5.5 (low effort),Claude Code,4,0,0,0,0,4.2,0.81
+Haiku 4.5 - mean of 2,Claude Code,0.5,0.5,0.5,0.5,0,8.7,1.27
+Grok 4.7 (xhigh) - mean of 5,Grok Build CLI (ACP),13.0,0.4,0.2,10.4,0,18.1,9.0
+"Muse Wonder 1.0 (max effort, Muse Code, Meta API) - mean of 3",Muse Code / Meta API,12.0,1.3,1.3,2.7,0,40.6,9.8
+"Muse Wonder Full 1.0 (max effort, Muse Code, Meta API)",Muse Code / Meta API,22,1,0,33,0,74.2,
+Gemini 4 Argon (high effort),Gemini CLI,15,0,2,1,0,46.9,15.01
+"Muse Wonder Full 1.0 (xhigh effort, Muse Code, Meta API)",Muse Code / Meta API,16,1,0,10,0,37.6,
+"Gemini 4 Argon (high effort, Antigravity CLI) - mean of 3",Antigravity CLI,13.0,0.0,1.0,1.0,0,16.7,2.06
+"Gemini 4 Argon (medium effort, Antigravity CLI) - mean of 2",Antigravity CLI,14.0,0.0,0.0,1.5,0,17.0,2.48
+"Muse Wonder Full 1.0 (max effort, Muse Code, Meta API) - mean of 2",Muse Code / Meta API,21.5,1.0,0.0,22.5,0,63.2,
+"Muse Wonder Full 1.0 (xhigh effort, Muse Code, Meta API) - mean of 2",Muse Code / Meta API,16.0,0.5,0.0,7.5,0,42.1,
+"Gemini 4 Argon (medium effort, Antigravity CLI) - mean of 3",Antigravity CLI,13.7,0.0,0.0,1.3,0,30.9,3.02
+"Gemini 4 Argon (low effort, Antigravity CLI)",Antigravity CLI,12,0,0,0,0,16.9,2.51
+"Gemini 4 Argon (low effort, Antigravity CLI) - mean of 3",Antigravity CLI,12.7,0.0,0.0,1.0,0,17.8,2.65
+DeepSeek V4.1 Flash 1017 (max effort),Claude Code / DeepSeek API,17,0,1,13,0,31.5,0.49
+DeepSeek V4.1 Flash 1017 (max effort) - mean of 2,Claude Code / DeepSeek API,18.0,0.5,1.0,12.0,0,32.4,0.52
+DeepSeek V4.1 Flash 1017 (max effort) - mean of 3,Claude Code / DeepSeek API,17.7,0.3,0.7,10.0,0,27.8,0.44
+DeepSeek V4.1 Flash 1017 (high effort) - mean of 2,Claude Code / DeepSeek API,14.0,3.0,1.0,8.5,0,23.8,0.37
+DeepSeek V4.1 Flash 1017 (max effort) - mean of 5,Claude Code / DeepSeek API,18.2,0.4,0.6,9.4,0,27.7,0.42
+DeepSeek V4.1 Flash 1017 (high effort) - mean of 5,Claude Code / DeepSeek API,15.2,1.4,0.8,8.2,0,24.2,0.35
+DeepSeek V4.1 Flash 1017 (low effort) - mean of 5,Claude Code / DeepSeek API,16.4,0.2,0.2,5.8,0,21.6,0.29
+DeepSeek V4.1 Flash 1017 (max effort) - mean of 7,Claude Code / DeepSeek API,18.1,0.7,0.6,8.7,0,27.1,0.42
+"DeepSeek V4.1 Flash 1017 (max effort, DeepSeek Harness) - mean of 7",DeepSeek Harness / DeepSeek API,19.0,0.6,0.1,24.0,0,34.9,0.98
+"DeepSeek V4.1 Flash 1017 (high effort, DeepSeek Harness) - mean of 5",DeepSeek Harness / DeepSeek API,17.0,1.2,0.0,19.2,0,24.2,0.47
+"DeepSeek V4.1 Flash 1017 (low effort, DeepSeek Harness) - mean of 5",DeepSeek Harness / DeepSeek API,16.4,1.0,0.0,13.4,0,17.3,0.5
+"DeepSeek V4.1 Flash 1017 (max effort, Pi) - mean of 5",Pi / DeepSeek API,17.8,2.2,0.0,28.8,0,32.4,0.52
+"DeepSeek V4.1 Flash 1017 (high effort, Pi) - mean of 5",Pi / DeepSeek API,16.0,1.2,0.2,12.8,0,22.8,0.31
+"DeepSeek V4.1 Flash 1017 (low effort, Pi) - mean of 5",Pi / DeepSeek API,14.0,0.8,0.2,11.8,0,18.4,0.24
+"DeepSeek V4.1 Flash 1017 (max effort, OpenCode) - mean of 5",OpenCode / DeepSeek API,15.8,1.2,0.0,18.2,0,23.9,0.39
+"DeepSeek V4.1 Flash 1017 (high effort, OpenCode) - mean of 5",OpenCode / DeepSeek API,15.4,0.4,0.0,12.8,0,18.2,0.29
+"DeepSeek V4.1 Flash 1017 (low effort, OpenCode) - mean of 5",OpenCode / DeepSeek API,15.8,0.6,1.4,7.6,0,23.0,0.34
+"Kimi K3.1 Pro (max effort, Moonshot API) - mean of 3",Claude Code / Moonshot API,17.0,1.0,0.7,9.3,0,30.7,6.17
+GPT-6.1 Terra (max effort) - mean of 3,Codex CLI,18.0,0.0,0.3,17.7,0,18.7,1.38
+GPT-6.1 Terra (xhigh effort) - mean of 3,Codex CLI,5.0,1.0,0.0,5.3,0,9.5,0.45
+GPT-6.1 Terra (high effort) - mean of 3,Codex CLI,4.3,1.3,0.3,3.7,0,8.0,0.39
+GPT-6.1 Terra (medium effort) - mean of 3,Codex CLI,3.7,0.3,0.0,2.0,0,5.3,0.16
+GPT-6.1 Terra (low effort) - mean of 3,Codex CLI,2.7,0.0,0.0,1.3,0,5.2,0.17

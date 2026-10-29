@@ -1,0 +1,125 @@
+{
+  "probe": "independent A4 response-model policy",
+  "outcomes": [
+    {
+      "protocol": "openai-chat",
+      "mode": "buffered",
+      "responseModel": "gpt-4.1",
+      "result": "rejected-DeepSeekModelPolicyError"
+    },
+    {
+      "protocol": "openai-chat",
+      "mode": "buffered",
+      "responseModel": "vendor/deepseek/deepseek-v4.1-flash",
+      "result": "accepted"
+    },
+    {
+      "protocol": "openai-chat",
+      "mode": "streaming",
+      "responseModel": "gpt-4.1",
+      "result": "rejected-DeepSeekModelPolicyError"
+    },
+    {
+      "protocol": "openai-chat",
+      "mode": "streaming",
+      "responseModel": "vendor/deepseek/deepseek-v4.1-flash",
+      "result": "accepted"
+    },
+    {
+      "protocol": "openai-responses",
+      "mode": "buffered",
+      "responseModel": "gpt-4.1",
+      "result": "rejected-DeepSeekModelPolicyError"
+    },
+    {
+      "protocol": "openai-responses",
+      "mode": "buffered",
+      "responseModel": "vendor/deepseek/deepseek-v4.1-flash",
+      "result": "accepted"
+    },
+    {
+      "protocol": "openai-responses",
+      "mode": "streaming",
+      "responseModel": "gpt-4.1",
+      "result": "rejected-DeepSeekModelPolicyError"
+    },
+    {
+      "protocol": "openai-responses",
+      "mode": "streaming",
+      "responseModel": "vendor/deepseek/deepseek-v4.1-flash",
+      "result": "accepted"
+    },
+    {
+      "protocol": "anthropic-messages",
+      "mode": "buffered",
+      "responseModel": "gpt-4.1",
+      "result": "rejected-DeepSeekModelPolicyError"
+    },
+    {
+      "protocol": "anthropic-messages",
+      "mode": "buffered",
+      "responseModel": "vendor/deepseek/deepseek-v4.1-flash",
+      "result": "accepted"
+    },
+    {
+      "protocol": "anthropic-messages",
+      "mode": "streaming",
+      "responseModel": "gpt-4.1",
+      "result": "rejected-DeepSeekModelPolicyError"
+    },
+    {
+      "protocol": "anthropic-messages",
+      "mode": "streaming",
+      "responseModel": "vendor/deepseek/deepseek-v4.1-flash",
+      "result": "accepted"
+    },
+    {
+      "protocol": "openai-chat",
+      "mode": "buffered",
+      "requestedModel": "gpt-4.1",
+      "result": "rejected-before-dispatch"
+    },
+    {
+      "protocol": "openai-chat",
+      "mode": "streaming",
+      "requestedModel": "gpt-4.1",
+      "result": "rejected-before-dispatch"
+    },
+    {
+      "protocol": "openai-responses",
+      "mode": "buffered",
+      "requestedModel": "gpt-4.1",
+      "result": "rejected-before-dispatch"
+    },
+    {
+      "protocol": "openai-responses",
+      "mode": "streaming",
+      "requestedModel": "gpt-4.1",
+      "result": "rejected-before-dispatch"
+    },
+    {
+      "protocol": "anthropic-messages",
+      "mode": "buffered",
+      "requestedModel": "gpt-4.1",
+      "result": "rejected-before-dispatch"
+    },
+    {
+      "protocol": "anthropic-messages",
+      "mode": "streaming",
+      "requestedModel": "gpt-4.1",
+      "result": "rejected-before-dispatch"
+    },
+    {
+      "protocol": "openai-chat",
+      "mode": "cli-buffered",
+      "responseModel": "gpt-4.1",
+      "result": "cli-exit-4-model-policy-error",
+      "exitCode": 4,
+      "stderr": "model policy error: Provider responded with model \"gpt-4.1\", which is outside the allowed DeepSeek family."
+    }
+  ],
+  "responseModelCaseCount": 12,
+  "outboundModelCaseCount": 6,
+  "requestCount": 13,
+  "cliStdoutLines": 6
+}

@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bug Hunt Bench — frontier coding models against real planted bugs</title>
+<meta name="description" content="A blind-graded benchmark of frontier coding models on real bugs planted in two production codebases. The score counts planted bugs only; extra fixes are tracked separately and never added.">
+<link rel="canonical" href="https://bughunt.productcompass.pm/">
+<meta name="color-scheme" content="light dark">
+<!-- theme-boot.js rewrites this to the dark surface when the dark theme is on -->
+<meta name="theme-color" content="#eef0f3">
+<meta name="author" content="Pawel Huryn">
+
+<!-- The one classic, render-blocking script on the page: it stamps the theme on
+     <html> before the first paint, so a dark-theme visitor never sees a white
+     flash. It is a file rather than an inline block because the CSP has no
+     'unsafe-inline'. -->
+<script src="/assets/js/theme-boot.js?v=1b1c4223ef"></script>
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bug Hunt Bench">
+<meta property="og:title" content="Bug Hunt Bench — frontier coding models against real planted bugs">
+<meta property="og:description" content="A blind-graded benchmark of frontier coding models on real bugs planted in two production codebases. The score counts planted bugs only; extra fixes are tracked separately and never added.">
+<meta property="og:url" content="https://bughunt.productcompass.pm/">
+<meta property="og:image" content="https://bughunt.productcompass.pm/og-image.png?v=2026-10-27-951f72c5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Bug Hunt Bench leaderboard">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bug Hunt Bench — frontier coding models against real planted bugs">
+<meta name="twitter:description" content="A blind-graded benchmark of frontier coding models on real bugs planted in two production codebases. The score counts planted bugs only.">
+<meta name="twitter:image" content="https://bughunt.productcompass.pm/og-image.png?v=2026-10-27-951f72c5">
+<meta name="twitter:creator" content="@PawelHuryn">
+
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/site.css?v=1b1c4223ef">
+
+<!-- dateModified and url are patched at runtime from data/benchmark.json; keep the static values in sync anyway. -->
+<script type="application/ld+json" id="dataset-schema">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Bug Hunt Bench",
+  "alternateName": "Bug Hunt Bench coding-model benchmark",
+  "description": "A blind-graded benchmark of frontier coding models on real bugs planted in two production codebases: a TypeScript VS Code extension and a React/Supabase LMS. Each model gets one round per repo in its own native agentic CLI, and an independent judge grades the resulting diff against a withheld answer key. The headline score counts planted bugs only.",
+  "url": "https://bughunt.productcompass.pm/",
+  "sameAs": "https://github.com/phuryn/bug-hunt-bench",
+  "license": "https://opensource.org/licenses/MIT",
+  "isAccessibleForFree": true,
+  "dateModified": "2026-08-25",
+  "keywords": ["coding models", "AI benchmark", "bug fixing", "software engineering agents", "blind grading"],
+  "creator": {
+    "@type": "Person",
+    "name": "Pawel Huryn",
+    "url": "https://www.productcompass.pm",
+    "sameAs": ["https://x.com/PawelHuryn", "https://www.linkedin.com/in/pawel-huryn"]
+  },
+  "distribution": {
+    "@type": "DataDownload",
+    "encodingFormat": "application/json",
+    "contentUrl": "https://bughunt.productcompass.pm/data/benchmark.json"
+  },
+  "measurementTechnique": "Blind grading of model-produced diffs against a withheld answer key",
+  "variableMeasured": [
+    { "@type": "PropertyValue", "name": "fixed", "description": "Planted bugs fixed and verified against the withheld answer key. The only number in the score.", "minValue": 0, "maxValue": 105 },
+    { "@type": "PropertyValue", "name": "partial", "description": "The defect was addressed but not fully closed. Not counted in the score." },
+    { "@type": "PropertyValue", "name": "claimed_only", "description": "The model reported a fix that its diff does not deliver." },
+    { "@type": "PropertyValue", "name": "extras", "description": "Genuine defects fixed that were never planted. Real work, deliberately kept out of the score." },
+    { "@type": "PropertyValue", "name": "wall_min", "description": "Wall-clock minutes for the run: repo 1 plus repo 2 agent time, dependency install excluded.", "unitText": "minute" },
+    { "@type": "PropertyValue", "name": "cost_usd", "description": "Run cost in US dollars, tagged by kind: an actual bill, a list-rate estimate, a reconstructed floor, or free.", "unitText": "USD" }
+  ]
+}
+</script>
+<script type="module" src="/assets/js/main.js?v=1b1c4223ef"></script>
+<!-- Microsoft Clarity analytics. A file, not an inline block: the CSP has no 'unsafe-inline'. -->
+<script src="/assets/js/clarity.js?v=1b1c4223ef" async></script>
+</head>
+<body>
+<a class="skip-link" href="#leaderboard">Skip to the leaderboard</a>
+
+<header class="masthead">
+  <div class="wrap masthead__inner">
+    <span class="wordmark" aria-current="page">Bug&nbsp;Hunt&nbsp;Bench</span>
+    <div class="masthead__right">
+      <nav class="masthead__nav" aria-label="Sections">
+        <a href="#leaderboard" aria-current="page">The board</a>
+        <a href="/method">Method</a>
+        <a href="/method#caveats">Caveats</a>
+        <a href="/method#definitions">Definitions</a>
+        <a id="source-link" href="https://github.com/phuryn/bug-hunt-bench/tree/main/results" target="_blank" rel="noopener" aria-label="Raw data (opens in a new tab)">Raw data</a>
+        <a id="star-link" class="masthead__star" href="https://github.com/phuryn/bug-hunt-bench" target="_blank" rel="noopener" aria-label="Star Bug Hunt Bench on GitHub (opens in a new tab)">&#9733; Star on GitHub</a>
+      </nav>
+      <button type="button" class="themetoggle" id="theme-toggle" aria-pressed="false" aria-label="Dark theme">
+        <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <circle class="disc" cx="8" cy="8" r="6"></circle>
+          <path class="half" d="M8 2a6 6 0 0 1 0 12z"></path>
+        </svg>
+        <span>Dark</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero wrap" aria-labelledby="page-title">
+    <p class="kicker">Blind-graded &middot; One prompt per repo<span id="hero-updated-wrap" hidden> &middot; Updated <time id="hero-updated" datetime=""></time></span></p>
+    <!-- replaced at runtime with the headline built from data/benchmark.json; the
+         static text is what a crawler without JavaScript gets, and carries no figures -->
+    <h1 id="page-title">Bug Hunt Bench</h1>
+    <p class="lede" id="hero-lede"></p>
+
+    <!-- The bridge: what the benchmark is, and the way through to the page that
+         says it properly. The method, the caveats and the definitions moved to
+         /method so the board comes first; this is the only prose about them that
+         stays here, and it carries no figures, so it cannot go stale. -->
+    <aside class="bridge" aria-label="What this is">
+      <p class="eyebrow">What this is</p>
+      <p>Same prompt, one round per repo, each model in its own agentic CLI. An independent judge grades the diff against an answer key the model never sees.</p>
+      <p class="bridge__more"><a href="/method">Method, caveats and definitions</a></p>
+    </aside>
+
+    <figure class="tickrule">
+      <div class="tickrule__plot" id="tickrule-plot" aria-hidden="true"></div>
+      <div class="tickrule__skeleton skeleton__row" id="tickrule-skeleton" aria-hidden="true"></div>
+      <figcaption id="tickrule-caption"></figcaption>
+    </figure>
+  </section>
+
+  <section class="controls wrap" aria-labelledby="controls-title">
+    <div class="controls__bar">
+      <h2 class="controls__title" id="controls-title">Runs on the board</h2>
+      <div class="presets" role="group" aria-label="Selection presets">
+        <button type="button" class="preset" data-preset="featured">Featured</button>
+        <button type="button" class="preset" data-preset="all">All runs</button>
+        <button type="button" class="preset" data-preset="ceiling">Ceiling runs only</button>
+        <button type="button" class="preset" data-preset="best-per-lab">Best per lab</button>
+        <button type="button" class="preset" data-preset="clear">Clear</button>
+      </div>
+    </div>
+    <details class="picker" id="picker">
+      <summary><span id="picker-summary">Choose runs</span></summary>
+      <div class="picker__grid" id="picker-grid"></div>
+      <p class="picker__note">A model can appear more than once — different reasoning tiers, or a different harness. Runs tagged <span class="tag tag--superseded">superseded</span> are historical and stay out of the default view.</p>
+    </details>
+  </section>
+
+  <section class="views wrap" id="leaderboard" aria-labelledby="views-title">
+    <div class="views__bar">
+      <h2 class="views__title" id="views-title">The board</h2>
+      <div class="views__actions">
+        <div class="tabs" role="tablist" aria-label="View">
+          <button type="button" class="tab" role="tab" id="tab-table" aria-controls="panel-table" aria-selected="true" data-view="table">Leaderboard</button>
+          <button type="button" class="tab" role="tab" id="tab-scatter" aria-controls="panel-scatter" aria-selected="false" tabindex="-1" data-view="scatter">Score vs cost</button>
+          <button type="button" class="tab" role="tab" id="tab-time" aria-controls="panel-time" aria-selected="false" tabindex="-1" data-view="time">Score vs time</button>
+          <button type="button" class="tab" role="tab" id="tab-turns" aria-controls="panel-turns" aria-selected="false" tabindex="-1" data-view="turns">Score vs turns</button>
+          <button type="button" class="tab" role="tab" id="tab-coverage" aria-controls="panel-coverage" aria-selected="false" tabindex="-1" data-view="coverage">Coverage</button>
+        </div>
+        <button type="button" class="btn btn--export" id="export-png">Export this view (PNG)</button>
+      </div>
+    </div>
+
+    <div class="panel" id="panel-table" role="tabpanel" tabindex="0" aria-labelledby="tab-table">
+      <div class="skeleton" id="board-skeleton" aria-hidden="true">
+        <div class="skeleton__head"></div>
+        <div class="skeleton__row"></div><div class="skeleton__row"></div>
+        <div class="skeleton__row"></div><div class="skeleton__row"></div>
+        <div class="skeleton__row"></div><div class="skeleton__row"></div>
+        <div class="skeleton__row"></div><div class="skeleton__row"></div>
+      </div>
+      <div class="tablewrap" id="tablewrap" tabindex="0" role="region" aria-label="Leaderboard table, scrollable">
+        <table class="board" id="board">
+          <caption class="board__caption" id="board-caption">
+            Ranked by planted bugs fixed, out of 105. Click a column heading to re-sort. The key under the table says how the bars are scaled and which of these costs are bills.
+            Every row's full note and caveat is on GitHub in <a href="https://github.com/phuryn/bug-hunt-bench/blob/main/results/run-notes.md">results/run-notes.md</a>.
+          </caption>
+          <thead id="board-head"></thead>
+          <tbody id="board-body"></tbody>
+        </table>
+      </div>
+      <p class="empty" id="table-empty" hidden>No runs selected. Pick some above, or hit <strong>Featured</strong>.</p>
+      <p class="pullquote" id="extras-pullquote"></p>
+      <div class="keys" id="table-keys"></div>
+    </div>
+
+    <div class="panel" id="panel-scatter" role="tabpanel" tabindex="0" aria-labelledby="tab-scatter" hidden>
+      <div class="chart" id="chart"></div>
+      <p class="empty" id="scatter-empty" hidden>No runs selected. Pick some above, or hit <strong>Featured</strong>.</p>
+      <div class="chart__legend" id="chart-legend"></div>
+      <p class="chart__note">
+        <span id="scale-note"></span>
+        <span id="axis-note"></span>
+        Every value here is also in the <button type="button" class="linkbtn" data-goto-view="table">leaderboard table</button>.
+      </p>
+    </div>
+
+    <div class="panel" id="panel-time" role="tabpanel" tabindex="0" aria-labelledby="tab-time" hidden>
+      <div class="chart" id="chart-time"></div>
+      <p class="empty" id="time-empty" hidden>No runs selected. Pick some above, or hit <strong>Featured</strong>.</p>
+      <div class="chart__legend" id="time-legend"></div>
+      <p class="chart__note">
+        <span id="time-scale-note"></span>
+        <span id="time-axis-note"></span>
+        Every value here is also in the <button type="button" class="linkbtn" data-goto-view="table">leaderboard table</button>.
+      </p>
+    </div>
+
+    <div class="panel" id="panel-turns" role="tabpanel" tabindex="0" aria-labelledby="tab-turns" hidden>
+      <div class="chart" id="chart-turns"></div>
+      <p class="empty" id="turns-empty" hidden>No runs selected. Pick some above, or hit <strong>Featured</strong>.</p>
+      <div class="chart__legend" id="turns-legend"></div>
+      <p class="chart__note">
+        A turn is one model step that either calls a tool or gives the final answer, counted from each run's own log the same way for every harness — see <a class="deflink" href="/method#def-turns">the definition</a>.
+        <span id="turns-scale-note"></span>
+        <span id="turns-axis-note"></span>
+        Every value here is also in the <button type="button" class="linkbtn" data-goto-view="table">leaderboard table</button>, and every run's own figures are in <a href="https://github.com/phuryn/bug-hunt-bench/blob/main/results/runs.csv">results/runs.csv</a>.
+      </p>
+    </div>
+
+    <div class="panel" id="panel-coverage" role="tabpanel" tabindex="0" aria-labelledby="tab-coverage" hidden>
+      <div class="coverage" id="coverage-host"></div>
+      <p class="empty" id="coverage-empty" hidden>No runs selected. Pick some above, or hit <strong>Featured</strong>.</p>
+      <div id="coverage-note"></div>
+    </div>
+  </section>
+
+  <noscript>
+    <section class="prose wrap">
+      <h2>This board needs JavaScript</h2>
+      <p>The table and the charts are drawn in the browser from a single JSON file, so no number on this page is hand-typed. You can read the same numbers straight from the source: <a href="/data/benchmark.json">data/benchmark.json</a>, or the <a href="https://github.com/phuryn/bug-hunt-bench/tree/main/results">public scoreboards</a>. The <a href="/method">method page</a> reads from the same file.</p>
+    </section>
+  </noscript>
+  <!-- The coda: the newsletter, last on the page and above the footer, so it is on
+       every view and never between a reader and a number. The frame is Substack's
+       own subscribe document (allowed by frame-src in _headers); the link in the
+       sentence is the way in for anyone whose browser blocks third-party frames. -->
+  <section class="coda wrap" aria-label="Subscribe to The Product Compass">
+    <div class="coda__inner">
+      <div class="coda__text">
+        <p>Bug Hunt Bench is run by Pawel Huryn, who writes <a href="https://www.productcompass.pm/subscribe">The Product Compass</a>, a newsletter on AI for product managers and builders. Same standards as this board: hands-on, no hype, nothing that was not run first.</p>
+      </div>
+      <div class="coda__frame">
+        <iframe class="coda__embed" src="https://www.productcompass.pm/embed" width="480" height="320" title="Subscribe to The Product Compass" loading="lazy" scrolling="no"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p><strong>Bug Hunt Bench</strong> — built and run by <a href="https://www.productcompass.pm">Pawel Huryn</a>. Updated <time id="footer-updated" datetime="">&nbsp;</time>. <a href="/method">How it works, and what it does not tell you</a>. <a href="https://staygreen.io/s/bug-hunt-benchmark" target="_blank" rel="noopener" aria-label="Status (opens in a new tab)">Status</a>.</p>
+    <p>Every number on this page is read from <a href="/data/benchmark.json">data/benchmark.json</a>, generated from the <a href="https://github.com/phuryn/bug-hunt-bench/tree/main/results">public scoreboards</a>. Nothing here is typed by hand.</p>
+  </div>
+</footer>
+</body>
+</html>
