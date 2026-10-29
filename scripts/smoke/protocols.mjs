@@ -20,6 +20,9 @@ const protocols = [
   "openai-responses",
   "anthropic-messages"
 ];
+const anthropicBaseUrl =
+  process.env.NEONFORGE_ANTHROPIC_BASE_URL?.trim() ||
+  defaultAnthropicBaseUrl(process.env.OPENAI_BASE_URL);
 const workspaceRevision = sourceRevision();
 const outputDir = join(process.cwd(), "dist", "protocol-smoke");
 mkdirSync(outputDir, { recursive: true });
@@ -28,6 +31,10 @@ const evidence = [];
 for (const protocol of protocols) {
   const token = `${protocol}-EVIDENCE`;
   const generatedAt = new Date().toISOString();
+  const providerBaseUrl =
+    protocol === "anthropic-messages"
+      ? anthropicBaseUrl
+      : process.env.OPENAI_BASE_URL;
   const run = await runCli([
     "dist/neonforge.mjs",
     "run",
@@ -38,7 +45,7 @@ for (const protocol of protocols) {
     protocol,
     "--stream",
     "--json"
-  ]);
+  ], providerBaseUrl);
   const result = parseResult(run.stdout);
   const passed =
     run.exitCode === 0 &&
@@ -51,7 +58,7 @@ for (const protocol of protocols) {
     workspaceRevision,
     protocol,
     model: process.env.OPENAI_MODEL,
-    providerBaseUrl: process.env.OPENAI_BASE_URL,
+    providerBaseUrl,
     streaming: true,
     generatedAt,
     command:
@@ -71,11 +78,11 @@ for (const protocol of protocols) {
 
 if (evidence.some((record) => !record.passed)) process.exit(1);
 
-function runCli(args) {
+function runCli(args, providerBaseUrl) {
   return new Promise((resolve, reject) => {
     const child = spawn(process.execPath, args, {
       cwd: process.cwd(),
-      env: process.env
+      env: { ...process.env, OPENAI_BASE_URL: providerBaseUrl }
     });
     let stdout = "";
     let stderr = "";
@@ -90,6 +97,15 @@ function runCli(args) {
       resolve({ exitCode: exitCode ?? 1, stdout, stderr })
     );
   });
+}
+
+function defaultAnthropicBaseUrl(baseUrl) {
+  const url = new URL(baseUrl);
+  if (url.hostname !== "api.deepseek.com") return baseUrl;
+  url.pathname = "/anthropic";
+  url.search = "";
+  url.hash = "";
+  return url.toString().replace(/\/$/, "");
 }
 
 function parseResult(stdout) {

@@ -14,7 +14,9 @@ leaderboard environment.
 - Native access to macOS, Linux, and Windows. Cross-platform evidence cannot be inferred
   from a single-host run.
 - Repository secrets `OPENAI_BASE_URL`, `OPENAI_API_KEY`, and `OPENAI_MODEL`. The model
-  must resolve to the DeepSeek family.
+  must resolve to the DeepSeek family. If the Anthropic Messages endpoint has a different
+  path, set the optional `NEONFORGE_ANTHROPIC_BASE_URL` secret; the smoke uses
+  `<OPENAI_BASE_URL>/../anthropic` automatically for the official DeepSeek domain.
 - A Git checkout at the release commit. The evidence records both the Git commit and the
   `source-manifest.json` revision.
 
@@ -120,6 +122,8 @@ installer to confirm legal files and MIT metadata, and rejects credential-shaped
   verification.
 - A failed native job produces no attestable bundle. Preserve its logs and fix the
   underlying failure rather than selecting a successful subset.
+- Do not normalize line endings before assembly. The repository disables Git EOL
+  conversion so source and benchmark hashes remain byte-identical on Windows.
 - Without a configured Git remote, the workflow and local verifier can be tested, but no
   GitHub attestation or release attachment exists until the repository is pushed and the
   workflow is run with authorization.
