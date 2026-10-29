@@ -12,6 +12,7 @@ import {
 import { tmpdir } from "node:os";
 import { join, isAbsolute, relative } from "node:path";
 import { sourceRevision } from "../lib/source-revision.mjs";
+import { evidencePlatformName } from "../lib/evidence-platform.mjs";
 
 const required = ["OPENAI_BASE_URL", "OPENAI_API_KEY", "OPENAI_MODEL"];
 const missing = required.filter((key) => !process.env[key]);
@@ -71,6 +72,7 @@ const output = join(
 );
 const passed = results.filter((result) => result.passed).length;
 const workspaceRevision = sourceRevision();
+const evidencePlatform = evidencePlatformName(process.platform);
 const tuiSmokeResults = results.map((result) => ({
   persona: result.persona,
   exitCode: result.target.exitCode,
@@ -86,7 +88,7 @@ const tuiSmoke = {
   schema: "neonforge.tui-smoke.v2",
   applicationVersion: "0.1.0",
   workspaceRevision,
-  platform: process.platform,
+  platform: evidencePlatform,
   arch: process.arch,
   runtime: process.version,
   model: process.env.OPENAI_MODEL,
@@ -133,7 +135,7 @@ const smokeDir = join(process.cwd(), "dist", "smoke");
 const relativeOutput = relative(process.cwd(), output).replaceAll("\\", "/");
 mkdirSync(smokeDir, { recursive: true });
 writeFileSync(
-  join(smokeDir, `${process.platform}-tui.json`),
+  join(smokeDir, `${evidencePlatform}-tui.json`),
   `${JSON.stringify(
     {
       ...tuiSmoke,

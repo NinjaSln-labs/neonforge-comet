@@ -36,6 +36,8 @@
     "scripts/benchmarks/refresh-registry.mjs",
     "scripts/dev/magpie-run.sh",
     "scripts/e2e/run-personas.mjs",
+    "scripts/lib/evidence-platform.d.mts",
+    "scripts/lib/evidence-platform.mjs",
     "scripts/lib/source-revision.d.mts",
     "scripts/lib/source-revision.mjs",
     "scripts/release/assemble-evidence.mjs",

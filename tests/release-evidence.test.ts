@@ -13,6 +13,7 @@ import {
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { sourceRevision } from "../scripts/lib/source-revision.mjs";
+import { evidencePlatformName } from "../scripts/lib/evidence-platform.mjs";
 import {
   REQUIRED_FILES,
   assembleEvidenceBundle,
@@ -26,6 +27,12 @@ const platforms = [
   { platform: "darwin", persona: "darwin" },
   { platform: "windows", persona: "win32" }
 ] as const;
+
+test("normalizes native Windows evidence names", () => {
+  assert.equal(evidencePlatformName("win32"), "windows");
+  assert.equal(evidencePlatformName("linux"), "linux");
+  assert.equal(evidencePlatformName("darwin"), "darwin");
+});
 
 test("assembles and verifies a complete evidence bundle", (t) => {
   const fixture = createFixture(t);
