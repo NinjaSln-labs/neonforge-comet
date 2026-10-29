@@ -144,10 +144,15 @@ The CLI TUI is distributed as a native platform artifact for macOS, Linux, and W
 It includes all code required for first launch and does not bundle model weights or a
 browser engine.
 
+Every installer includes the project `LICENSE` and `THIRD_PARTY_NOTICES`. The packaged
+`package.json` declares the project's MIT license. Packaging fails before publication if
+either legal file is missing from the source tree or from the compressed installer.
+
 For every supported platform and architecture, the final compressed installer artifact
 must be smaller than 50,000,000 bytes. The release process records the artifact path,
-platform, architecture, and exact byte size. A build fails release verification when any
-required installer is missing or reaches the limit.
+platform, architecture, exact byte size, license identifier, and legal-file list. A build
+fails release verification when any required installer is missing, lacks a legal file,
+or reaches the limit.
 
 First launch must not download model weights or a hidden language runtime. Provider
 access happens only after the user starts a task, subject to the normal provider and
@@ -158,7 +163,11 @@ Desktop is not a v1 deliverable. Core contracts remain surface-neutral.
 ## Security and Privacy
 
 - Credentials are stored through the operating-system secret store and referenced by
-  opaque IDs in configuration and events.
+  opaque IDs in configuration and events. Supported stores are macOS Keychain, Linux
+  Secret Service, and Windows Credential Manager.
+- Windows credential writes and reads use the current user's Windows Credential Manager.
+  The secret crosses the PowerShell boundary over stdin; it is never placed in process
+  arguments, command lines, environment diagnostics, configuration, or evidence.
 - API keys, authorization headers, secret environment values, and credential-bearing
   URLs are redacted before writing logs, events, exports, crash reports, or terminal
   output.
@@ -173,69 +182,20 @@ Desktop is not a v1 deliverable. Core contracts remain surface-neutral.
 
 ## Scenarios
 
-### Scenario: Approved CLI task
+### Scenario: Windows Credential Manager storage
 
-A user starts a task in a workspace. The model reads files, requests a file mutation and
-a shell command, the user approves each action, and the session ends with the requested
-change plus a summary and evidence records.
+On Windows, adding a provider stores the API key in the current user's Credential
+Manager. Reading the provider retrieves the same key. The key is absent from process
+arguments, configuration, session events, diagnostics, and exports.
 
 Acceptance: A1
 
-### Scenario: Shared CLI session model
+### Scenario: Legal files in every installer
 
-The CLI TUI displays a live timeline with approvals, diffs, command output, usage, and
-the final outcome. Headless commands inspect and export the same persisted session
-format, and a session created in either mode remains readable in the other.
+The release workflow builds compressed CLI TUI installers for macOS, Linux, and Windows
+on their native build environments. Each installer is smaller than 50,000,000 bytes,
+contains the runtime code required for first launch, contains both `LICENSE` and
+`THIRD_PARTY_NOTICES`, and declares the MIT license in package metadata.
 
 Acceptance: A2
 
-### Scenario: Permission modes
-
-In balanced mode, a workspace write, shell command, and outbound fetch each request
-approval. After the user switches to workspace-auto, an ordinary workspace write runs
-without approval, while a shell command and outbound fetch still request approval and a
-denial is recorded.
-
-Acceptance: A8
-
-### Scenario: Resume an interrupted run
-
-An interruption occurs after a tool result is durably recorded. Resuming the session
-continues from that result, shows the prior events, preserves pending approvals and
-artifacts, and does not claim an unrecorded tool ran successfully.
-
-Acceptance: A9
-
-### Scenario: Secret redaction
-
-A provider credential and a secret-bearing command environment value are used during a
-session. The event log, export, diagnostics, crash record, and terminal output never
-contain the secret values.
-
-Acceptance: A10
-
-### Scenario: Headless machine protocol
-
-A non-interactive run emits only valid NDJSON records. When a required approval cannot
-be obtained, the process exits with the `approval-required` category, persists the
-pending approval, and emits the session ID and resume instructions.
-
-Acceptance: A11
-
-### Scenario: Installer size limit
-
-The release workflow builds compressed CLI TUI installers for macOS, Linux, and Windows
-on their native build environments. Each recorded artifact is smaller than 50,000,000
-bytes, contains the NeonForge runtime code required for first launch, contains no model
-weights or browser engine, and can launch without downloading model weights or a hidden
-language runtime.
-
-Acceptance: A13
-
-### Scenario: Cross-platform CLI support
-
-The CLI TUI has a native release artifact for macOS, Linux, and Windows. On each
-platform it launches, opens a workspace, and completes the same smoke task against a
-test provider with recorded release evidence.
-
-Acceptance: A14

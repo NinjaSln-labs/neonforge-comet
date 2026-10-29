@@ -154,41 +154,75 @@ raw data to reproduce the calculation.
 - The release fails if any required suite has a skipped, blocked, timed-out, or flaky
   required case, or if the efficiency thresholds are not met.
 
+## Release Evidence Bundle
+
+Release evidence is distributed as a self-contained directory and compressed archive.
+The bundle contains the platform TUI smoke records, persona E2E reports, protocol-smoke
+records, paired A/B report, installers, release metadata, `LICENSE`,
+`THIRD_PARTY_NOTICES`, and `source-manifest.json`.
+
+The bundle manifest records:
+
+- Schema version, application version, source revision, Git commit, and generation time.
+- Every payload path, byte size, and SHA-256 hash, sorted by repository-relative path.
+- Required platform coverage and the evidence kind supplied by each platform.
+- The checks executed before assembly and their exit outcomes.
+- The legal-file list and installer metadata needed for offline release inspection.
+
+`pnpm evidence:assemble` validates the source revision of every evidence input before
+copying it into a bundle. It rejects missing, duplicate, stale, wrong-platform, or
+path-escaping inputs. It writes the manifest and a `SHA256SUMS` sidecar.
+
+`pnpm evidence:verify <bundle>` works offline against the same source checkout. It
+validates the bundle schema, source revision, Git commit, required platform and protocol
+coverage, file hashes and sizes, `SHA256SUMS`, installer size and legal-file contents,
+and absence of credential fields. It must fail closed on any mismatch.
+
+The native release-evidence workflow runs build and test gates on macOS, Linux, and
+Windows. Only the Linux job runs the paired A/B benchmark. Each job uploads evidence from
+its native platform; one aggregate job downloads all outputs, checks that every record
+binds to one source revision, assembles and verifies the bundle, and uploads it with
+GitHub artifact provenance attestation. Tag builds attach the bundle and checksum sidecar
+to the GitHub release.
+
 ## Scenarios
 
-### Scenario: Full AI persona E2E
+### Scenario: Portable and revision-bound evidence
 
-The AI persona suite runs all 12 personas on the CLI TUI on macOS, Linux, and Windows.
-All 36 scenarios pass their deterministic functional assertions, no P0/P1 defect is
-found, and independent evaluator evidence is recorded for each scenario.
+Persona smoke and release evidence contain repository-relative artifact paths. Offline
+validation rejects any record whose source revision differs from the current source
+manifest.
 
-Acceptance: A16
+Acceptance: A3
 
-### Scenario: Authoritative external baseline
+### Scenario: Assemble a complete evidence bundle
 
-The release contains an immutable external-baseline snapshot for `deepseek-flash` with
-publisher, source URL, benchmark and model version, retrieval date, raw values, units,
-aggregation method, and integrity hash. Every model-quality claim maps to that snapshot;
-no self-generated baseline is presented as third-party evidence, and unavailable
-sources are explicitly marked.
+The assembler accepts complete native-platform inputs and writes a canonical manifest
+listing every required file with its SHA-256 hash and byte size. It rejects missing,
+duplicate, stale, wrong-platform, or path-escaping evidence.
 
-Acceptance: A17
+Acceptance: A4
 
-### Scenario: Real-use efficiency improvement
+### Scenario: Verify a release bundle offline
 
-Paired optimized and unoptimized runs use identical tasks, model, protocol, permissions,
-fixtures, and seeds. The optimized runtime meets the confirmed cost and wall-clock
-thresholds without exceeding the confirmed success-rate regression margin, and the
-report includes reproducible per-run evidence.
+The verifier checks the bundle schema, source revision, Git commit, platform and protocol
+coverage, file hashes and sizes, checksum sidecar, installer legal files, and absence of
+credentials without using the network or a provider.
 
-Acceptance: A18
+Acceptance: A5
 
-### Scenario: Confirmed local baseline registry
+### Scenario: Native release-evidence workflow
 
-The repository contains a versioned local registry for confirmed authoritative suites
-and official data. It includes the DeepSeek official baseline and a Bug Hunt Bench
-snapshot plus adapter contract. Offline verification validates every source file, hash,
-method, retrieval record, and canonical status. Staged or unavailable sources are never
-treated as accepted evidence. V1 does not claim a NeonForge Bug Hunt Bench score.
+The workflow runs the required gates on native macOS, Linux, and Windows runners, runs
+the paired A/B benchmark once on Linux, aggregates only artifacts from one source
+revision, verifies the bundle, and creates a GitHub artifact provenance attestation.
 
-Acceptance: A19
+Acceptance: A6
+
+### Scenario: Reproduce and inspect release evidence
+
+The release documentation gives the exact native-host prerequisites, provider secrets,
+workflow and local commands, artifact retention, verification result, and the boundary
+between recorded workflow provenance and the publisher's external benchmark environment.
+
+Acceptance: A7
