@@ -12,7 +12,8 @@ leaderboard environment.
 
 - Node.js 22 or newer, pnpm 12.4.2, and a `tar` command.
 - Native access to macOS, Linux, and Windows. Cross-platform evidence cannot be inferred
-  from a single-host run.
+  from a single-host run. The macOS evidence job uses an Intel (`x86_64`) runner to match
+  the released `darwin-x64` installer.
 - Repository secrets `OPENAI_BASE_URL`, `OPENAI_API_KEY`, and `OPENAI_MODEL`. The model
   must resolve to the DeepSeek family. If the Anthropic Messages endpoint has a different
   path, set the optional `NEONFORGE_ANTHROPIC_BASE_URL` secret; the smoke uses

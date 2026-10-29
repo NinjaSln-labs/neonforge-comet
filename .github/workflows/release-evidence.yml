@@ -33,7 +33,7 @@ jobs:
         include:
           - os: ubuntu-latest
             platform: linux
-          - os: macos-latest
+          - os: macos-15-intel
             platform: darwin
           - os: windows-latest
             platform: windows
