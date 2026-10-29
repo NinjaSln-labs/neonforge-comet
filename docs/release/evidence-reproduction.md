@@ -50,6 +50,26 @@ gh attestation verify neonforge-release-evidence-<revision>.tgz \
   --repo <owner>/<repository>
 ```
 
+## Published Verification Result
+
+The `v1.1.0` publication was verified on 2026-10-29:
+
+- Native jobs: Linux, Intel macOS, and Windows all passed the build, test, protocol,
+  persona, and Linux A/B gates.
+- Tag workflow: [run 40842737239](https://github.com/NinjaSln-labs/neonforge-comet/actions/runs/40842737239),
+  commit `a29bf8de3561f469d5582763555a91b7dcd83b37`, aggregate and attestation jobs
+  passed.
+- Release: [v1.1.0](https://github.com/NinjaSln-labs/neonforge-comet/releases/tag/v1.1.0)
+  with `neonforge-release-evidence-7e4c400c2aa5.tgz` and `SHA256SUMS`.
+- Bundle source revision: `7e4c400c2aa5172c1895496f76faece9bf9747db91c14b42078fdadca71d5952`.
+- Published archive SHA-256: `40d43f7593ab5148787a2c973c00ed5e5dbf5c029979bbf4d14962513d96e6e9`.
+- Offline verification command:
+  `pnpm evidence:verify /tmp/neonforge-release-v1.1.0/neonforge-release-evidence-7e4c400c2aa5.tgz --workspace .`
+  returned `result: passed`, 19 files, platforms `linux`, `darwin`, `windows`, and
+  protocols `openai-chat`, `openai-responses`, `anthropic-messages`.
+- `gh attestation verify ... --repo NinjaSln-labs/neonforge-comet` passed for workflow
+  `release`, ref `refs/tags/v1.1.0`, and commit `a29bf8d`.
+
 The workflow artifact is retained for 30 days. A GitHub release attachment is the
 durable publication record.
 
